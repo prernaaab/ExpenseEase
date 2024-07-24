@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components{
+    .question{
+        @apply text-2xl rounded-t-xl flex bg-[#F8F8F8] px-5 py-3 items-center justify-between font-extrabold;
+    }
+}
+
+@layer components{
+    .QNA{
+        @apply border-2 w-[88%] rounded-xl;
+    }
+}
+
+@layer components{
+    .answer{
+        @apply text-xl rounded-xl px-5 py-4 w-[78.857%];
+    }
+}
