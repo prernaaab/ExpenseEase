@@ -1,8 +1,29 @@
-# React + Vite
+# Expense Ease
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Steps to copy and build this react App.
 
-Currently, two official plugins are available:
+- Step 1 : Run the following command to copy this repo into your device.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+git clone https://github.com/Harshil-0707/ExpenseEase.git
+
+```
+
+- Step 2 : Run following command to install dependencies to build react app.
+
+```
+npm i
+
+```
+
+- step 3 : Run this command to install tailwind related resources.
+
+```
+npm install -D tailwindcss postcss autoprefixer
+```
+
+- Step 4 : Run your React App.
+
+```
+npm run dev
+```
