@@ -18,7 +18,7 @@ function HeroSection() {
           </button>
         </div>
       </div>
-      <div className=" w-full">
+      <div className=" w-full max-xl:hidden">
         <img alt="img" src={heroImg} x className="bg-cover h-full w-full" />
       </div>
     </div>

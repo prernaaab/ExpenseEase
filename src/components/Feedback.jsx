@@ -30,14 +30,14 @@ function Feedback() {
   ]);
   return (
     <div className="mx-24">
-      <h2 className="font-extrabold text-5xl w-[28rem] mb-4">
+      <h2 className="font-extrabold text-5xl max-w-[28rem] mb-4">
         What our users are saying
       </h2>
-      <div className="text-[1.057rem] opacity-50 w-[36rem] mb-10">
+      <div className="text-[1.057rem] opacity-50 w-4/6 max-w-[36rem] mb-10">
         Read what our satisfied users have to say about their experience with
         our expense tracker web app.
       </div>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-3 max-lg:justify-center">
         {feedbacks.map((items) => {
           return (
             <div

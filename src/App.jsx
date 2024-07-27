@@ -66,17 +66,17 @@ function App() {
           Learn how to use the expense tracker web app with this step-by-step
           guide.
         </div>
-        <div className="flex overflow-hidden">
+        <div className="grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 overflow-hidden">
           {work.map((items) => {
             return (
-              <div key={items.para} className="w-full even:mx-2">
-                <div className="flex items-center flex-grow relative mb-3">
+              <div key={items.para}>
+                <div className="flex items-center relative mb-3">
                   <div className="bg-black text-white py-4 px-6 rounded-full text-xl font-bold">
                     {work.indexOf(items) + 1}
                   </div>
-                  <div className="bg-black w-[24.8rem] h-[1px] absolute left-14"></div>
+                  <div className="bg-black w-full h-[1px] absolute left-14"></div>
                 </div>
-                <div className="w-[27.5rem] flex flex-col">
+                <div className="w-[27.3rem] flex flex-col">
                   <div className="bg-[#F8F8F8] px-5 py-3 rounded-2xl">
                     <h3 className="text-[1.6rem] font-extrabold">
                       {items.heading}

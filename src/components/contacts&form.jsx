@@ -27,13 +27,15 @@ function Contacts_Form() {
     },
   ]);
   return (
-    <div className="flex mt-28 mb-20 mx-[6.5rem] gap-2">
-      <div className="w-full flex flex-col justify-center">
-        <h3 className="font-extrabold text-[3.2rem] mb-3">Contact Us</h3>
+    <div className="flex mt-28 mb-20 mx-[6.5rem] gap-2 max-lg:flex-wrap max-lg:mx-1">
+      <div className="w-full flex flex-col justify-center max-lg:ml-10">
+        <h3 className="font-extrabold text-[3.2rem] mb-3 max-lg:text-2xl">
+          Contact Us
+        </h3>
         <div>
           {details.map((items) => {
             return (
-              <div className="mb-3" key={items.id}>
+              <div className="mb-3 " key={items.id}>
                 <div className="text-xl font-bold">{items.type}</div>
                 <div className="text-xl">{items.value}</div>
               </div>
@@ -41,7 +43,10 @@ function Contacts_Form() {
           })}
         </div>
       </div>
-      <form action="#" className="bg-[#F8F8F8] w-full px-10 py-8 rounded-2xl">
+      <form
+        action="#"
+        className="bg-[#F8F8F8] w-full px-10 py-8 rounded-2xl max-sm:w-auto max-lg:mx-7"
+      >
         <h3 className="font-bold text-[2.5rem] tracking-[-0.16rem] mb-7">
           Get in Touch
         </h3>

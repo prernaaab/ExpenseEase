@@ -31,10 +31,10 @@ function Portfolio() {
   return (
     <div className="mx-24 my-32">
       <div className="my-9">
-        <h2 className="font-extrabold text-4xl w-96 mb-3">
+        <h2 className="font-extrabold text-4xl sm:max-w-96 mb-3 max-sm:text-xl">
           Why Choose Our Expense Tracker Web App?
         </h2>
-        <div className="w-[34.5rem]">
+        <div className="max-w-[34.5rem]">
           Our expense tracker web app offers a range of benefits that can help
           you better manage your finances and save time and effort. Here are
           some reasons why you should choose our app:
