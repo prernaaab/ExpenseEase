@@ -20,3 +20,9 @@
         @apply text-xl px-5 py-4 w-[78.857%];
     }
 }
+
+@layer components {
+    .loginInput {
+        @apply outline-none border-none h-10 bg-[#EDECE6];
+    }
+}

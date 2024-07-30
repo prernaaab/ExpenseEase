@@ -29,7 +29,7 @@ function Portfolio() {
     },
   ]);
   return (
-    <div className="mx-24 my-32">
+    <div className="mx-24 max-lg:mx-[15%] my-32">
       <div className="my-9">
         <h2 className="font-extrabold text-4xl sm:max-w-96 mb-3 max-sm:text-xl">
           Why Choose Our Expense Tracker Web App?
@@ -47,10 +47,14 @@ function Portfolio() {
               <img
                 src={items.photo}
                 alt="img"
-                className="w-[18rem] rounded-lg mb-4"
+                className="w-[18rem] max-sm:w-full rounded-lg mb-4"
               />
-              <div className="font-bold text-xl w-[17rem]">{items.heading}</div>
-              <div className="w-[16.2rem] text-sm opacity-50">{items.para}</div>
+              <div className="font-bold text-xl max-w-[17rem]">
+                {items.heading}
+              </div>
+              <div className="max-w-[16.2rem] text-sm opacity-50">
+                {items.para}
+              </div>
             </div>
           );
         })}

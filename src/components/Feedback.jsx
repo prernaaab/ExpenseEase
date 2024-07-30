@@ -29,8 +29,8 @@ function Feedback() {
     },
   ]);
   return (
-    <div className="mx-24">
-      <h2 className="font-extrabold text-5xl max-w-[28rem] mb-4">
+    <div className="mx-24 max-xl:mx-[10%]">
+      <h2 className="font-extrabold text-5xl max-w-[28rem] mb-4 max-lg:text-5xl">
         What our users are saying
       </h2>
       <div className="text-[1.057rem] opacity-50 w-4/6 max-w-[36rem] mb-10">
@@ -41,11 +41,11 @@ function Feedback() {
         {feedbacks.map((items) => {
           return (
             <div
-              className="w-[25rem] bg-[#F8F8F8] rounded-lg p-3 h-full"
+              className="max-w-[25rem] bg-[#F8F8F8] rounded-lg p-3 h-full"
               key={items.name}
             >
               <div className="font-bold">{items.name}</div>
-              <div className="w-[22.27rem]">{items.feedback}</div>
+              <div className="max-w-[22.27rem]">{items.feedback}</div>
             </div>
           );
         })}

@@ -27,8 +27,8 @@ function Contacts_Form() {
     },
   ]);
   return (
-    <div className="flex mt-28 mb-20 mx-[6.5rem] gap-2 max-lg:flex-wrap max-lg:mx-1">
-      <div className="w-full flex flex-col justify-center max-lg:ml-10">
+    <div className="flex mt-28 mb-20 mx-[6.5rem] lg:mx-20 gap-2 max-lg:flex-wrap max-lg:mx-1">
+      <div className="max-w-full lg:w-full flex flex-col justify-center max-lg:ml-16 max-sm:ml-7">
         <h3 className="font-extrabold text-[3.2rem] mb-3 max-lg:text-2xl">
           Contact Us
         </h3>
@@ -37,7 +37,7 @@ function Contacts_Form() {
             return (
               <div className="mb-3 " key={items.id}>
                 <div className="text-xl font-bold">{items.type}</div>
-                <div className="text-xl">{items.value}</div>
+                <div className="text-xl text-wrap break-all">{items.value}</div>
               </div>
             );
           })}
@@ -45,9 +45,9 @@ function Contacts_Form() {
       </div>
       <form
         action="#"
-        className="bg-[#F8F8F8] w-full px-10 py-8 rounded-2xl max-sm:w-auto max-lg:mx-7"
+        className="bg-[#F8F8F8] w-full px-[4.5%] py-8 rounded-2xl max-sm:w-auto max-lg:mx-12 max-sm:mx-3 lg:px-10"
       >
-        <h3 className="font-bold text-[2.5rem] tracking-[-0.16rem] mb-7">
+        <h3 className="font-bold text-[2.5rem] tracking-[-0.16rem] mb-7 max-xl:text-[2rem]">
           Get in Touch
         </h3>
         <div className="mb-4">
