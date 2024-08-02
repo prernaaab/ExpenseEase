@@ -73,7 +73,7 @@ function Home() {
         <div className="grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 overflow-hidden">
           {work.map((items) => {
             return (
-              <div key={items.para}>
+              <div key={items.para} className="max-lg:mb-3">
                 <div className="flex items-center relative mb-3">
                   <div className="bg-black text-white py-4 px-6 rounded-full text-xl font-bold">
                     {work.indexOf(items) + 1}

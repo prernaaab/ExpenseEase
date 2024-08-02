@@ -1,42 +1,73 @@
 import React from "react";
+import blind from "../assets/blind.png";
+import { useNavigate } from "react-router-dom";
 import GoogleLogo from "../assets/googlelogo.png";
+import blacklogoimg from "../assets/pnglogofinal-black.png";
+import whitelogoimg from "../assets/pnglogofinal-white.png";
 
 function Login() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/");
+  };
+
   return (
-    <div className="bg-[#0D0D0D] h-[100dvh] flex">
-      <div className="w-[50%] h-full"></div>
-      <div className="bg-[#EDECE6] w-full flex items-center justify-center rounded-s-[2rem]">
-        <div className="my-2 w-[30rem]">
-          <div>
-            <h2 className="text-xl font-semibold mb-[1rem] tracking-widest">
+    <div className="h-[100dvh] flex">
+      <div className="w-[50%] h-full max-lg:hidden">
+        <img
+          alt="logo"
+          src={blacklogoimg}
+          onClick={handleClick}
+          className="ml-2 mt-2 hover:cursor-pointer h-[4rem]"
+        />
+      </div>
+      <div className="w-full flex items-center justify-center bg-signup-bg bg-contain rounded-s-[44px] max-lg:rounded-s-none">
+        <div className="my-2 w-[32rem] bg-[#6364647a] backdrop-blur-[5px] overflow-auto p-10 rounded-xl max-lg:w-[80%]">
+          <div className="border-b-[1px] border-[#959595] mb-4 pb-5 relative">
+            <img
+              src={whitelogoimg}
+              alt="logo"
+              onClick={handleClick}
+              className="absolute hidden hover:cursor-pointer max-lg:block z-10 h-[2rem] left-[-32px] top-[-30px]"
+            />
+            <h2 className="text-xl font-semibold mb-[1rem] text-white tracking-widest">
               Create Account
             </h2>
-            <button className="outline-none border-none bg-[#efefef] rounded-lg pl-1 pr-3 h-12 text-xs text-[#5A5A5A] flex items-center">
-              <img src={GoogleLogo} alt="logo" className="h-[32px]" /> Sign up
-              with Google
+            <button className="outline-none pl-1 pr-3 h-12 text-xs text-white flex items-center">
+              <img src={GoogleLogo} alt="logo" className="h-[32px] mr-2" /> Sign
+              up with Google
             </button>
-          </div>
-          <div className="text-[#A3A3A3] text-center text-lg my-7">
-            {" "}
-            - OR -{" "}
           </div>
           <form action="#" className="flex flex-col">
             <input type="text" className="loginInput" placeholder="Full Name" />
+            <div className="inputBorder"></div>
             <input
               type="email"
-              className="loginInput my-6"
+              className="loginInput"
               placeholder="Email Address"
             />
-            <input
-              type="Password"
-              className="loginInput"
-              placeholder="Password"
-            />
-            <button className="bg-[#0D0D0D] my-7 text-white font-semibold rounded-md h-[2.3rem]">
+            <div className="inputBorder"></div>
+            <div className="relative">
+              <input
+                type="text"
+                className="loginInput w-[90%]"
+                placeholder="Password"
+              />
+              <div>
+                <img
+                  src={blind}
+                  alt="hide"
+                  className="absolute right-0 top-[30%] hover:cursor-pointer"
+                />
+              </div>
+            </div>
+            <div className="inputBorder"></div>
+            <button className="bg-[#DEDEDE] my-7 text-black font-bold text-base rounded-md h-[2.3rem]">
               Create Account
             </button>
           </form>
-          <div className="text-sm">
+          <div className="text-sm text-gray-400">
             Already have an account ?{" "}
             <a href="/" className="text-blue-600">
               Log in

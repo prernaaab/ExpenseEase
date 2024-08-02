@@ -27,7 +27,7 @@ function Contacts_Form() {
     },
   ]);
   return (
-    <div className="flex mt-28 mb-20 mx-[6.5rem] lg:mx-20 gap-2 max-lg:flex-wrap max-lg:mx-1">
+    <div className="flex mt-28 mb-10 mx-[6.5rem] lg:mx-20 gap-2 max-lg:flex-wrap max-lg:mx-1">
       <div className="max-w-full lg:w-full flex flex-col justify-center max-lg:ml-16 max-sm:ml-7">
         <h3 className="font-extrabold text-[3.2rem] mb-3 max-lg:text-2xl">
           Contact Us

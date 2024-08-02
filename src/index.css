@@ -7,22 +7,20 @@
     .question {
         @apply text-2xl flex bg-[#F8F8F8] px-5 py-3 items-center justify-between font-extrabold;
     }
-}
 
-@layer components {
     .QNA {
         @apply border-2 w-[88%] rounded-xl overflow-hidden;
     }
-}
 
-@layer components {
     .answer {
         @apply text-xl px-5 py-4 w-[78.857%];
     }
-}
 
-@layer components {
     .loginInput {
-        @apply outline-none border-none h-10 bg-[#EDECE6];
+        @apply outline-none border-none h-10 bg-transparent text-white placeholder:text-white;
+    }
+
+    .inputBorder {
+        @apply bg-[#959595] h-[1px] my-3;
     }
 }

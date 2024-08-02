@@ -10,7 +10,7 @@ function HeroSection() {
   };
 
   return (
-    <div className="flex h-[47rem]">
+    <div className="flex h-[100dvh]">
       <div className="flex w-full bg-[#191919] justify-center items-center">
         <div className="w-[70%]">
           <h1 className="text-white text-[3.40rem] font-bold mb-2 leading-tight tracking-[-3px] max-sm:text-3xl max-sm:tracking-[1px]">
