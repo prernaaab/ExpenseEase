@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function pagenotfound() {
+export default function Pagenotfound() {
   return (
     <div className="grid place-content-center h-[100dvh]">
       <h1 className="text-8xl font-bold text-gray-700">404</h1>

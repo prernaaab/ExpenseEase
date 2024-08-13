@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
     .question {
         @apply text-2xl flex bg-[#F8F8F8] px-5 py-3 items-center justify-between font-extrabold;
