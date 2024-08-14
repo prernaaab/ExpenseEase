@@ -1,9 +1,11 @@
-import FAQ from "../components/FAQ";
+import {
+  FAQ,
+  Feedback,
+  Portfolio,
+  HeroSection,
+  Contects_Form,
+} from "../components";
 import React, { useState } from "react";
-import Feedback from "../components/Feedback";
-import Portfolio from "../components/portfolio";
-import HeroSection from "../components/HeroSection";
-import Contects_Form from "../components/contacts&form";
 
 function Home() {
   const [features, setFeatures] = useState([

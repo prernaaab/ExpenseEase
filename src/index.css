@@ -23,3 +23,18 @@
         @apply bg-[#959595] h-[1px] my-3;
     }
 }
+
+progress::-webkit-progress-bar {
+    background-color: #e5e7eb;
+    border-radius: 0.5rem;
+}
+
+progress::-webkit-progress-value {
+    background-color: #10b981;
+    border-radius: 0.5rem;
+}
+
+progress::-moz-progress-bar {
+    background-color: #10b981;
+    border-radius: 0.5rem;
+}
