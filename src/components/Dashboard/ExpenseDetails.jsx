@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import img1 from "../assets/Illustration-1.png";
-import img2 from "../assets/Illustration-2.png";
+import img1 from "../../assets/Illustration-1.png";
+import img2 from "../../assets/Illustration-2.png";
 
 export default function ExpenseDetails() {
   const [stats, setStats] = useState([

@@ -1,7 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 function DashboardLinks() {
+  const location = useLocation();
+
+  const isActiveLink = (path) => {
+    return location.pathname.replace(/\/$/, "") === path.replace(/\/$/, "");
+  };
   return (
     <div className="text-white mt-14 ml-16 mr-11">
       <div className="bg-white h-12 w-12 rounded-md mb-3"></div>
@@ -12,9 +17,10 @@ function DashboardLinks() {
       <div className="flex flex-col gap-6 mt-10 text-xl font-bold text-white">
         <NavLink
           to="/dashboard"
-          className={({ isActive }) =>
-            `${isActive ? "opacity-100" : "opacity-50"}`
+          className={`${
+            isActiveLink("/dashboard") ? "opacity-100" : "opacity-50"
           }
+          `}
           end
         >
           Add expanse

@@ -1,5 +1,5 @@
-import show from "../assets/show.svg";
-import hide from "../assets/hide.svg";
+import show from "../../assets/show.svg";
+import hide from "../../assets/hide.svg";
 import React, { useState } from "react";
 
 function FAQ() {

@@ -1,15 +1,28 @@
-import React from "react";
 import blind from "../assets/blind.png";
-import { useNavigate } from "react-router-dom";
+import React, { useRef, useState } from "react";
 import GoogleLogo from "../assets/googlelogo.png";
+import { useNavigate, NavLink } from "react-router-dom";
 import blacklogoimg from "../assets/pnglogofinal-black.png";
 import whitelogoimg from "../assets/pnglogofinal-white.png";
 
 function Login() {
   const navigate = useNavigate();
+  const refPassword = useRef(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleClick = () => {
     navigate("/");
+  };
+
+  const handleLogin = () => {
+    navigate("/dashboard");
+  };
+
+  const handlePassword = (e) => {
+    setShowPassword(!showPassword);
+    showPassword
+      ? (refPassword.current.type = "text")
+      : (refPassword.current.type = "password");
   };
 
   return (
@@ -51,27 +64,30 @@ function Login() {
             <div className="relative">
               <input
                 type="text"
-                className="loginInput w-[90%]"
+                ref={refPassword}
                 placeholder="Password"
+                className="loginInput w-[90%]"
               />
-              <div>
-                <img
-                  src={blind}
-                  alt="hide"
-                  className="absolute right-0 top-[30%] hover:cursor-pointer"
-                />
-              </div>
+              <img
+                src={blind}
+                alt="hide"
+                onClick={handlePassword}
+                className="absolute right-0 top-[30%] hover:cursor-pointer"
+              />
             </div>
             <div className="inputBorder"></div>
-            <button className="bg-[#DEDEDE] my-7 text-black font-bold text-base rounded-md h-[2.3rem]">
+            <button
+              onClick={handleLogin}
+              className="bg-[#DEDEDE] my-7 text-black font-bold text-base rounded-md h-[2.3rem]"
+            >
               Create Account
             </button>
           </form>
           <div className="text-sm text-gray-400">
             Already have an account ?{" "}
-            <a href="/" className="text-blue-600">
+            <NavLink to="/" className="text-blue-600">
               Log in
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>

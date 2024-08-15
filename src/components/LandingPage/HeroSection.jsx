@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import heroImg from "../assets/map_wrapper.png";
+import heroImg from "../../assets/map_wrapper.png";
 
 function HeroSection() {
   const navigate = useNavigate();

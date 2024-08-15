@@ -39,7 +39,7 @@ function Home() {
   ]);
 
   return (
-    <div>
+    <>
       <HeroSection />
       <div className="mx-24 my-16 max-lg:mx-[10%]">
         <h2 className="text-5xl font-extrabold mb-2 max-lg:text-3xl">
@@ -101,7 +101,7 @@ function Home() {
       <Feedback />
       <FAQ />
       <Contects_Form />
-    </div>
+    </>
   );
 }
 
