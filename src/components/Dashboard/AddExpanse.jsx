@@ -30,7 +30,7 @@ export default function AddExpanse() {
             placeholder="Remarks"
           />
         </div>
-        <button className="bg-[#101010] outline-none translate-x-[14dvw] text-white font-semibold py-3 px-20 rounded-lg text-2xl">
+        <button className="bg-[#101010] outline-none translate-x-[14dvw] text-white font-semibold py-3 w-[40%] rounded-lg text-2xl">
           Add
         </button>
       </div>

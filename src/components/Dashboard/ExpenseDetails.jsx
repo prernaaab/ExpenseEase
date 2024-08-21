@@ -26,9 +26,12 @@ export default function ExpenseDetails() {
     },
   ]);
   return (
-    <div className="bg-[#F9FAFC] py-14 px-10 w-[21dvw] flex flex-col justify-between rounded-e-3xl">
+    <div className="bg-[#F9FAFC] py-14 px-[3%] w-[21dvw] flex flex-col justify-between rounded-e-3xl">
+      {/* text-[clamp(10px,1.3dvw,21px)] */}
       <div>
-        <h3 className="mb-7 text-xl font-semibold">Where your money go?</h3>
+        <h3 className="mb-7 text-[clamp(10px,1.4dvw,21px)] font-semibold">
+          Where your money go?
+        </h3>
         <div>
           {stats.map((item) => {
             return (
@@ -50,16 +53,18 @@ export default function ExpenseDetails() {
       </div>
       <div className="rounded-lg bg-[#EDF0F6] w-full p-5 relative">
         <div className="flex justify-between mb-4">
-          <img src={img1} alt="img" className="h-16 -mt-8" />
-          <img src={img2} alt="img" className="h-20 -mt-12" />
+          <img src={img1} alt="img" className="h-[4dvw] -mt-8" />
+          <img src={img2} alt="img" className="h-[5.5dvw] -mt-12" />
         </div>
         <div className="flex flex-col gap-y-3">
-          <h3 className="font-semibold">Save more money</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error,
-            modi.
+          <h3 className="font-semibold text-[clamp(9px,1.3dvw,24px)]">
+            Save more money
+          </h3>
+          <p className="text-[clamp(10px,1dvw,20px)]">
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim.
           </p>
-          <button className="bg-[#101010] text-white text-xs rounded-md font-semibold tracking-wider py-3 w-full">
+          <button className="bg-[#101010] text-white text-[clamp(9px,1dvw,12px)] rounded-md font-semibold tracking-wider py-3 w-full">
             VIEW TIPS
           </button>
         </div>

@@ -1,3 +1,4 @@
+import Marquee from "./MarqueeEffect";
 import React, { useState } from "react";
 
 function Feedback() {
@@ -37,19 +38,7 @@ function Feedback() {
         Read what our satisfied users have to say about their experience with
         our expense tracker web app.
       </div>
-      <div className="flex flex-wrap gap-3 max-lg:justify-center">
-        {feedbacks.map((items) => {
-          return (
-            <div
-              className="max-w-[25rem] bg-[#F8F8F8] rounded-lg p-3 h-full"
-              key={items.name}
-            >
-              <div className="font-bold">{items.name}</div>
-              <div className="max-w-[22.27rem]">{items.feedback}</div>
-            </div>
-          );
-        })}
-      </div>
+      <Marquee item={feedbacks} />
     </div>
   );
 }
