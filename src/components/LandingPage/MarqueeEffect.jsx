@@ -8,28 +8,28 @@ export default function MarqueeEffect({ item }) {
 
   return (
     <>
-      <Marquee autoFill pauseOnHover>
+      <Marquee autoFill pauseOnHover className="Marquee">
         {firstHalf.map((items) => {
           return (
             <div
-              className="flex-none p-4 m-3 bg-[#F8F8F8] rounded-lg h-full"
+              className="flex-none child p-4 m-3 bg-[#F8F8F8] rounded-lg h-full"
               key={items.name}
             >
               <div className="font-bold mb-2">{items.name}</div>
-              <div className="max-w-[22.27rem]">{items.feedback}</div>
+              <div className="max-w-[30rem]">{items.feedback}</div>
             </div>
           );
         })}
       </Marquee>
-      <Marquee autoFill pauseOnHover direction="right">
+      <Marquee autoFill pauseOnHover direction="right" className="Marquee">
         {secondHalf.map((items) => {
           return (
             <div
-              className="flex-none p-4 m-3 bg-[#F8F8F8] rounded-lg h-full"
+              className="flex-none child p-4 m-3 bg-[#F8F8F8] rounded-lg h-full"
               key={items.name}
             >
               <div className="font-bold mb-2">{items.name}</div>
-              <div className="max-w-[22.27rem]">{items.feedback}</div>
+              <div className="max-w-[30rem]">{items.feedback}</div>
             </div>
           );
         })}

@@ -51,3 +51,15 @@ progress::-moz-progress-bar {
     background-color: #10b981;
     border-radius: 0.5rem;
 }
+
+.Marquee:hover .child {
+    opacity: 0.5;
+    filter: blur(3px);
+    transition: 0.5s, filter 0.5s, transform 0.5s;
+}
+
+.Marquee .child:hover {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1.1);
+}

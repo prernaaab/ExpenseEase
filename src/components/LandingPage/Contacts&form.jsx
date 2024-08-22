@@ -1,14 +1,6 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 
 function Contacts_Form() {
-  // const {
-  //     register,
-  //     handleSubmit,
-  //     watch,
-  //     formState: { errors },
-  // } = useForm()
-
   const [details, setDetails] = useState([
     {
       id: 1,
@@ -44,6 +36,7 @@ function Contacts_Form() {
         </div>
       </div>
       <form
+        onSubmit={(e) => e.preventDefault()}
         action="#"
         className="bg-[#F8F8F8] w-full px-[4.5%] py-8 rounded-2xl max-sm:w-auto max-lg:mx-12 max-sm:mx-3 lg:px-10"
       >

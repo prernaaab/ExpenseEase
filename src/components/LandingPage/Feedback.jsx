@@ -1,5 +1,5 @@
 import Marquee from "./MarqueeEffect";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Feedback() {
   const [feedbacks, setFeedbacks] = useState([
