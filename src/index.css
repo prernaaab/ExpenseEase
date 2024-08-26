@@ -3,63 +3,80 @@
 @tailwind utilities;
 
 @layer components {
-    .question {
-        @apply text-2xl flex bg-[#F8F8F8] px-5 py-3 items-center justify-between font-extrabold;
-    }
+  .question {
+    @apply text-2xl flex bg-[#F8F8F8] px-5 py-3 items-center justify-between font-extrabold;
+  }
 
-    .QNA {
-        @apply border-2 w-[88%] rounded-xl overflow-hidden;
-    }
+  .QNA {
+    @apply border-2 w-[88%] rounded-xl overflow-hidden;
+  }
 
-    .answer {
-        @apply text-xl px-5 py-4 w-[78.857%];
-    }
+  .answer {
+    @apply text-xl px-5 py-4 w-[78.857%];
+  }
 
-    .loginInput {
-        @apply outline-none border-none h-10 bg-transparent text-white placeholder:text-white;
-    }
+  .loginInput {
+    @apply outline-none border-none h-10 bg-transparent text-white placeholder:text-white;
+  }
 
-    .inputBorder {
-        @apply bg-[#959595] h-[1px] my-3;
-    }
+  .inputBorder {
+    @apply bg-[#959595] h-[1px] my-3;
+  }
 
-    .outer {
-        @apply mx-24 my-16 max-lg:mx-[10%];
-    }
+  .outer {
+    @apply mx-24 my-16 max-lg:mx-[10%];
+  }
 
-    .heading {
-        @apply text-5xl font-extrabold mb-2 max-lg:text-3xl;
-    }
+  .heading {
+    @apply text-5xl font-extrabold mb-2 max-lg:text-3xl;
+  }
 
-    .subHeading {
-        @apply opacity-60 mb-7;
-    }
+  .subHeading {
+    @apply opacity-60 mb-7;
+  }
 
+  .dashboardParent {
+    @apply py-14 md:px-[4.5dvw] max-md:px-[7%] flex flex-col max-md:w-full;
+  }
 }
 
 progress::-webkit-progress-bar {
-    background-color: #e5e7eb;
-    border-radius: 0.5rem;
+  background-color: #e5e7eb;
+  border-radius: 0.5rem;
 }
 
 progress::-webkit-progress-value {
-    background-color: #10b981;
-    border-radius: 0.5rem;
+  background-color: #10b981;
+  border-radius: 0.5rem;
 }
 
 progress::-moz-progress-bar {
-    background-color: #10b981;
-    border-radius: 0.5rem;
+  background-color: #10b981;
+  border-radius: 0.5rem;
 }
 
 .Marquee:hover .child {
-    opacity: 0.5;
-    filter: blur(3px);
-    transition: 0.5s, filter 0.5s, transform 0.5s;
+  opacity: 0.5;
+  filter: blur(3px);
+  transition: 0.5s, filter 0.5s, transform 0.5s;
 }
 
 .Marquee .child:hover {
-    opacity: 1;
-    filter: blur(0);
-    transform: scale(1.1);
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1.1);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar:hover {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #808080;
+  border: 2px solid #f0f0f0;
 }

@@ -31,7 +31,7 @@ function Portfolio() {
   return (
     <div className="mx-24 max-lg:mx-[15%] my-32">
       <div className="my-9">
-        <h2 className="font-extrabold text-4xl sm:max-w-96 mb-3 max-sm:text-xl">
+        <h2 className="font-extrabold text-4xl sm:max-w-96 leading-snug mb-3 max-sm:text-[clamp(20px,6dvw,10rem)]">
           Why Choose Our Expense Tracker Web App?
         </h2>
         <div className="max-w-[34.5rem]">

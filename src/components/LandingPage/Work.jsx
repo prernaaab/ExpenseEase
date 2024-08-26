@@ -16,7 +16,8 @@ export default function Work() {
     },
   ]);
   return (
-    <div className="grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 overflow-hidden">
+    //
+    <div className="overflow-hidden grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 gap-x-3">
       {work.map((items) => {
         return (
           <div key={items.para} className="max-lg:mb-3">
@@ -28,7 +29,7 @@ export default function Work() {
             </div>
             <div className="max-w-[27.3rem] flex flex-col">
               <div className="bg-[#F8F8F8] px-5 py-3 rounded-2xl max-sm:px-3">
-                <h3 className="text-[1.6rem] font-extrabold max-sm:text-[1rem] break-words">
+                <h3 className="text-[1.6rem] font-extrabold max-lg:text-[clamp(21px,3dvw,24px)] break-words">
                   {items.heading}
                 </h3>
                 <div className="text-[16px] opacity-50 max-w-[19.87rem]">

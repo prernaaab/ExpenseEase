@@ -16,7 +16,7 @@ export default function Features() {
     },
   ]);
   return (
-    <div className="flex gap-2 flex-wrap">
+    <div className="flex gap-2 flex-wrap break-all">
       {features.map((items) => {
         return (
           <div
