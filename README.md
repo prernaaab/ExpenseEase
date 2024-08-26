@@ -6,14 +6,12 @@ Steps to copy and build this react App.
 
 ```
 git clone https://github.com/Harshil-0707/ExpenseEase.git
-
 ```
 
 - Step 2 : Run following command to install dependencies to build react app.
 
 ```
 npm i
-
 ```
 
 - step 3 : Run this command to install tailwind related resources.
