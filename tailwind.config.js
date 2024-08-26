@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-import { transform } from 'framer-motion';
-
 export default {
   content: [
     "./index.html",
