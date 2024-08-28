@@ -5,7 +5,6 @@ export default function MarqueeEffect({ item }) {
   const halfIndex = Math.ceil(item.length / 2); // Calculate the halfway point
   const firstHalf = item.slice(0, halfIndex); // Get the first half
   const secondHalf = item.slice(halfIndex); // Get the second half
-
   return (
     <>
       <Marquee autoFill pauseOnHover className="Marquee">
@@ -13,9 +12,9 @@ export default function MarqueeEffect({ item }) {
           return (
             <div
               className="flex-none child p-4 m-3 bg-[#F8F8F8] rounded-lg h-full"
-              key={items.name}
+              key={items.fullname}
             >
-              <div className="font-bold mb-2">{items.name}</div>
+              <div className="font-bold mb-2">{items.fullname}</div>
               <div className="max-w-[30rem]">{items.feedback}</div>
             </div>
           );
@@ -25,10 +24,10 @@ export default function MarqueeEffect({ item }) {
         {secondHalf.map((items) => {
           return (
             <div
-              className="flex-none child p-4 m-3 bg-[#F8F8F8] rounded-lg h-full"
-              key={items.name}
+              className="flex-none child p-4 m-3 bg-[#F8F8F8] rounded-lg"
+              key={items.fullname}
             >
-              <div className="font-bold mb-2">{items.name}</div>
+              <div className="font-bold mb-2">{items.fullname}</div>
               <div className="max-w-[30rem]">{items.feedback}</div>
             </div>
           );

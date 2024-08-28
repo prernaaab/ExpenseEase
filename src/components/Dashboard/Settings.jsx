@@ -4,7 +4,7 @@ export default function Settings() {
   return (
     <div className="py-14 px-[4.5dvw]">
       <div className="mb-10">
-        <h3 className="text-4xl font-semibold mb-2">ExpenseEase</h3>
+        <h3 className="text-4xl font-semibold mb-2">Settings</h3>
       </div>
     </div>
   );

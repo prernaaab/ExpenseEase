@@ -12,12 +12,12 @@ const data = [
 // rgba(21, 122, 255, 1) : on focus
 const MyBarChart = () => (
   <div className="h-24">
-    <ResponsiveContainer width={"100%"} height={"100%"}>
-      <BarChart data={data} width={50} height={48}>
+    <ResponsiveContainer>
+      <BarChart data={data}>
         <Bar
-          className="hover:cursor-pointer"
           dataKey="sales"
           fill="rgba(21, 122, 255, .2)"
+          className="hover:cursor-pointer"
         />
       </BarChart>
     </ResponsiveContainer>

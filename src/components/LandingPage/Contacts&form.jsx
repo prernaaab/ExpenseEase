@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
 function Contacts_Form() {
+  const [feedbacks, setFeedbacks] = useState({
+    fullname: "",
+    mail: "",
+    address: "",
+    feedback: "",
+  });
   const [details, setDetails] = useState([
     {
       id: 1,
@@ -18,6 +24,25 @@ function Contacts_Form() {
       value: "123 Main Street, City, State, Country",
     },
   ]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFeedbacks((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSaveFeedback = () => {
+    localStorage.setItem("feedback", JSON.stringify(feedbacks));
+    setFeedbacks({
+      fullname: "",
+      mail: "",
+      address: "",
+      feedback: "",
+    });
+  };
+
   return (
     <div className="flex mt-28 mb-10 mx-[6.5rem] lg:mx-20 gap-2 max-lg:flex-wrap max-lg:mx-1">
       <div className="max-w-full lg:w-full flex flex-col justify-center max-lg:ml-16 max-sm:ml-7">
@@ -46,18 +71,13 @@ function Contacts_Form() {
         <div className="mb-4">
           <div className="flex gap-x-2 mb-5">
             <div className="flex-grow">
-              <label>Name</label>
+              <label>Full Name</label>
               <input
                 type="text"
-                placeholder="John"
-                className="px-5 h-10 rounded-lg w-full mt-2"
-              />
-            </div>
-            <div className="flex-grow">
-              <label>Surname</label>
-              <input
-                type="text"
-                placeholder="Doe"
+                name="fullname"
+                placeholder="John Doe"
+                value={feedbacks.fullname || ""}
+                onChange={handleInputChange}
                 className="px-5 h-10 rounded-lg w-full mt-2"
               />
             </div>
@@ -67,16 +87,22 @@ function Contacts_Form() {
               <label className="tracking-wide">Mail</label>
               <input
                 type="text"
+                name="mail"
                 placeholder="johndoe@mail.net"
+                value={feedbacks.mail || ""}
+                onChange={handleInputChange}
                 className="px-5 h-12 rounded-lg w-full mt-2"
               />
             </div>
             <div className="mb-5">
-              <label className="tracking-wide">Adress</label>
+              <label className="tracking-wide">Address</label>
               <div>
                 <input
                   type="text"
                   placeholder="Capitol, WA"
+                  name="address"
+                  value={feedbacks.address || ""}
+                  onChange={handleInputChange}
                   className="px-5 h-12 rounded-lg w-full mt-2"
                 />
               </div>
@@ -86,13 +112,19 @@ function Contacts_Form() {
               <div>
                 <textarea
                   type="text"
+                  name="feedback"
+                  value={feedbacks.feedback || ""}
+                  onChange={handleInputChange}
                   className="h-32 w-full mt-2 rounded-lg px-5 py-3 resize-none"
                 />
               </div>
             </div>
           </div>
         </div>
-        <button className="bg-black text-white w-full h-12 text-[1.1rem] rounded-lg font-bold">
+        <button
+          onClick={handleSaveFeedback}
+          className="bg-black text-white w-full h-12 text-[1.1rem] rounded-lg font-bold"
+        >
           Submit
         </button>
       </form>
