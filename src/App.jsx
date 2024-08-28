@@ -6,7 +6,7 @@ import {
   Expense,
   Summary,
 } from "./components";
-import { Home, Login, Pagenotfound } from "./pages";
+import { Home, SignUp, Login, Pagenotfound } from "./pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/SignUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Pagenotfound />} />
         <Route path="/dashboard/*" element={<Layout />}>

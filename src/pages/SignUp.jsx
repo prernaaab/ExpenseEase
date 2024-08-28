@@ -45,7 +45,7 @@ function Login() {
               className="absolute hidden hover:cursor-pointer max-lg:block z-10 h-[2rem] left-[-32px] top-[-30px]"
             />
             <h2 className="text-[clamp(0.74rem,5dvw,1.5rem)] font-semibold mb-[1rem] text-white tracking-widest">
-              Login
+              Create Account
             </h2>
             <button className="outline-none pl-1 pr-3 h-12 text-[clamp(0.4rem,2dvw,0.7rem)] text-white flex items-center">
               <img
@@ -57,6 +57,8 @@ function Login() {
             </button>
           </div>
           <form action="#" className="flex flex-col">
+            <input type="text" className="loginInput" placeholder="Full Name" />
+            <div className="inputBorder"></div>
             <input
               type="email"
               className="loginInput"
@@ -82,13 +84,13 @@ function Login() {
               onClick={handleLogin}
               className="bg-[#DEDEDE] my-7 text-black font-bold text-[clamp(0.74rem,5dvw,1.1rem)] rounded-md h-[2.3rem]"
             >
-              Login
+              Create Account
             </button>
           </form>
           <div className="text-sm text-gray-400">
-            Don't have an account ?{" "}
-            <NavLink to="/signup" className="text-blue-600">
-              Sign up
+            Already have an account ?{" "}
+            <NavLink to="/login" className="text-blue-600">
+              Log in
             </NavLink>
           </div>
         </div>
