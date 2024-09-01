@@ -42,7 +42,7 @@ function FAQ() {
 
   return (
     <>
-      <h2 className="text-5xl font-extrabold my-8 pl-[5.8rem]">FAQ</h2>
+      <h2 className="text-5xl font-extrabold my-8 ml-[6%]">FAQ</h2>
       <div className="flex flex-col items-center gap-y-4">
         {FAQ.map((faq) => {
           return (
