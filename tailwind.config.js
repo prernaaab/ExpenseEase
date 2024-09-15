@@ -11,7 +11,7 @@ export default {
         'LoginBox': '5px 6px 10px 3px rgba(0,0,0,0.25)',
       },
       backgroundImage: {
-        'signup-bg': "url('./src/assets/signup-bg.jpg')"
+        'signup-bg': "url('./src/images/signup-bg.jpg')"
       },
     },
   },

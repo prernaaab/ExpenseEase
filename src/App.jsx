@@ -1,5 +1,6 @@
 import {
-  Layout,
+  Layout1,
+  Layout2,
   AddExpanse,
   Settings,
   Accounts,
@@ -17,10 +18,12 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Pagenotfound />} />
-        <Route path="/dashboard/*" element={<Layout />}>
+        <Route path="/dashboard/*" element={<Layout1 />}>
           <Route index element={<AddExpanse />} />
           <Route path="Expenses" element={<Expense />} />
           <Route path="Summary" element={<Summary />} />
+        </Route>
+        <Route path="/dashboard/*" element={<Layout2 />}>
           <Route path="Accounts" element={<Accounts />} />
           <Route path="Settings" element={<Settings />} />
         </Route>

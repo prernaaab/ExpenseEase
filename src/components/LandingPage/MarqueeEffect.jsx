@@ -12,10 +12,10 @@ export default function MarqueeEffect({ item }) {
           return (
             <div
               className="flex-none child p-4 m-3 bg-[#F8F8F8] rounded-lg h-full"
-              key={items.fullname}
+              key={items.Description}
             >
-              <div className="font-bold mb-2">{items.fullname}</div>
-              <div className="max-w-[30rem]">{items.feedback}</div>
+              <div className="font-bold mb-2">{items.Name}</div>
+              <div className="max-w-[30rem]">{items.Description}</div>
             </div>
           );
         })}
@@ -25,10 +25,10 @@ export default function MarqueeEffect({ item }) {
           return (
             <div
               className="flex-none child p-4 m-3 bg-[#F8F8F8] rounded-lg"
-              key={items.fullname}
+              key={items.Description}
             >
-              <div className="font-bold mb-2">{items.fullname}</div>
-              <div className="max-w-[30rem]">{items.feedback}</div>
+              <div className="font-bold mb-2">{items.Name}</div>
+              <div className="max-w-[30rem]">{items.Description}</div>
             </div>
           );
         })}

@@ -1,6 +1,4 @@
-import conf from '../conf/conf.js';
 import { Client, Account, ID } from "appwrite";
-
 
 export class AuthService {
     client = new Client();
@@ -8,10 +6,9 @@ export class AuthService {
 
     constructor() {
         this.client
-            .setEndpoint(conf.appwriteUrl)
-            .setProject(conf.appwriteProjectId);
+            .setEndpoint(import.meta.env.VITE_APPWRITE_URL)
+            .setProject(import.meta.env.VITE_APPWRITE_PROJECT_ID);
         this.account = new Account(this.client);
-
     }
 
     async createAccount({ email, password, name }) {
@@ -42,12 +39,10 @@ export class AuthService {
         } catch (error) {
             console.log("Appwrite serive :: getCurrentUser :: error", error);
         }
-
         return null;
     }
 
     async logout() {
-
         try {
             await this.account.deleteSessions();
         } catch (error) {
@@ -59,4 +54,3 @@ export class AuthService {
 const authService = new AuthService();
 
 export default authService
-

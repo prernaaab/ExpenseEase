@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addFeedback } from "../../redux/feedbackSlice";
+import { saveUserFeedback } from "../../appwrite/feedback/feedback";
 
 function Contacts_Form() {
   const [feedbacks, setFeedbacks] = useState({
@@ -7,23 +10,37 @@ function Contacts_Form() {
     address: "",
     feedback: "",
   });
-  const [details, setDetails] = useState([
-    {
-      id: 1,
-      type: "Email",
-      value: "support@expensetracker.com",
-    },
-    {
-      id: 2,
-      type: "Phone",
-      value: "+1 123-456-7890",
-    },
-    {
-      id: 3,
-      type: "Address",
-      value: "123 Main Street, City, State, Country",
-    },
+  const [details] = useState([
+    { type: "Email", value: "support@expensetracker.com" },
+    { type: "Phone", value: "+1 123-456-7890" },
+    { type: "Address", value: "123 Main Street, City, State, Country" },
   ]);
+  const dispatch = useDispatch();
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const saveFeedback = async () => {
+    const { fullname, mail, address, feedback } = feedbacks;
+
+    if (mail && !validateEmail(mail)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      await saveUserFeedback(fullname, mail, address, feedback);
+
+      // Dispatch the new feedback to the Redux store
+      dispatch(addFeedback({ Name: fullname, Description: feedback }));
+
+      console.log("Feedback submitted successfully.");
+    } catch (error) {
+      console.error("Error submitting feedback:", error);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,8 +50,8 @@ function Contacts_Form() {
     }));
   };
 
-  const handleSaveFeedback = () => {
-    localStorage.setItem("feedback", JSON.stringify(feedbacks));
+  const handleSaveFeedback = async () => {
+    await saveFeedback();
     setFeedbacks({
       fullname: "",
       mail: "",
@@ -50,14 +67,12 @@ function Contacts_Form() {
           Contact Us
         </h3>
         <div>
-          {details.map((items) => {
-            return (
-              <div className="mb-3 " key={items.id}>
-                <div className="text-xl font-bold">{items.type}</div>
-                <div className="text-xl text-wrap break-all">{items.value}</div>
-              </div>
-            );
-          })}
+          {details.map((item) => (
+            <div className="mb-3" key={item.type}>
+              <div className="text-xl font-bold">{item.type}</div>
+              <div className="text-xl text-wrap break-all">{item.value}</div>
+            </div>
+          ))}
         </div>
       </div>
       <form
@@ -75,7 +90,8 @@ function Contacts_Form() {
               <input
                 type="text"
                 name="fullname"
-                placeholder="John Doe"
+                autoComplete="off"
+                placeholder="Harshil Chaurasiya"
                 value={feedbacks.fullname || ""}
                 onChange={handleInputChange}
                 className="px-5 h-10 rounded-lg w-full mt-2"
@@ -88,7 +104,8 @@ function Contacts_Form() {
               <input
                 type="text"
                 name="mail"
-                placeholder="johndoe@mail.net"
+                autoComplete="off"
+                placeholder="harshilchaurasiya@mail.net"
                 value={feedbacks.mail || ""}
                 onChange={handleInputChange}
                 className="px-5 h-12 rounded-lg w-full mt-2"
@@ -96,28 +113,26 @@ function Contacts_Form() {
             </div>
             <div className="mb-5">
               <label className="tracking-wide">Address</label>
-              <div>
-                <input
-                  type="text"
-                  placeholder="Capitol, WA"
-                  name="address"
-                  value={feedbacks.address || ""}
-                  onChange={handleInputChange}
-                  className="px-5 h-12 rounded-lg w-full mt-2"
-                />
-              </div>
+              <input
+                type="text"
+                name="address"
+                autoComplete="off"
+                placeholder="Capitol, WA"
+                value={feedbacks.address || ""}
+                onChange={handleInputChange}
+                className="px-5 h-12 rounded-lg w-full mt-2"
+              />
             </div>
             <div>
               <label className="tracking-wide">Description</label>
-              <div>
-                <textarea
-                  type="text"
-                  name="feedback"
-                  value={feedbacks.feedback || ""}
-                  onChange={handleInputChange}
-                  className="h-32 w-full mt-2 rounded-lg px-5 py-3 resize-none"
-                />
-              </div>
+              <textarea
+                type="text"
+                name="feedback"
+                autoComplete="off"
+                value={feedbacks.feedback || ""}
+                onChange={handleInputChange}
+                className="h-32 w-full mt-2 rounded-lg px-5 py-3 resize-none"
+              />
             </div>
           </div>
         </div>

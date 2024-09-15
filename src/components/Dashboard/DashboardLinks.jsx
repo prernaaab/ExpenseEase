@@ -10,9 +10,9 @@ function DashboardLinks() {
   return (
     <div className="text-white mt-14 mx-[3dvw] w-[20dvw] max-lg:hidden">
       <div className="bg-white h-12 w-12 rounded-md mb-3"></div>
-      <h3 className="text-2xl font-bold mb-1">Harshil</h3>
+      <h3 className="text-2xl font-bold mb-1">John Doe</h3>
       <div className="text-[14px] mb-24 text-white opacity-50 text-wrap break-all">
-        chaurasiyaharshil7705@gmail.com
+        johndoe@mail.net
       </div>
       <div className="flex flex-col gap-6 mt-10 text-xl font-bold text-white">
         <NavLink

@@ -1,6 +1,7 @@
 import React from "react";
+import heroImgs from "../../images";
+import ImgMarquee from "./ImageMarquee";
 import { useNavigate } from "react-router-dom";
-import heroImg from "../../assets/map_wrapper.png";
 
 function HeroSection() {
   const navigate = useNavigate();
@@ -28,8 +29,8 @@ function HeroSection() {
           </button>
         </div>
       </div>
-      <div className=" w-full max-xl:hidden">
-        <img alt="img" src={heroImg} className="bg-contain h-full w-full" />
+      <div className=" w-full overflow-hidden max-xl:hidden">
+        <ImgMarquee images={heroImgs} />
       </div>
     </div>
   );

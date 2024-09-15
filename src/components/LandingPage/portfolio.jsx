@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import imgCard1 from "../../assets/first.jpeg";
-import imgCard2 from "../../assets/second.jpeg";
-import imgCard3 from "../../assets/third.jpeg";
+import imgCard1 from "../../images/first.jpeg";
+import imgCard2 from "../../images/second.jpeg";
+import imgCard3 from "../../images/third.jpeg";
 
 function Portfolio() {
   const [portfolio, setPortfolio] = useState([
