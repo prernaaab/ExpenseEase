@@ -1,10 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Account } from "appwrite";
+import { useDispatch } from "react-redux";
+import { addExpense, client } from "../../redux/expenseSlice";
 
-export default function AddExpanse() {
-  const [selectedValue, setSelectedValue] = useState("Select Catagory");
-  const handleSelectChange = (event) => {
-    setSelectedValue(event.target.value);
+const account = new Account(client);
+
+export default function AddExpense() {
+  const dispatch = useDispatch();
+  const [userId, setUserId] = useState(null);
+  const [SelectCatagory, SetSelectCatagory] = useState("Select Category");
+  const [PaymentMethod, setPaymentMethod] = useState("Select Payment Method");
+  const [AmountSpend, setAmountSpend] = useState("");
+  const [Time, setTime] = useState("");
+  const [Remarks, setRemarks] = useState("");
+
+  useEffect(() => {
+    // Get user details from Appwrite Account
+    const getUserId = async () => {
+      try {
+        const user = await account.get();
+        setUserId(user.$id); // Set userId
+      } catch (error) {
+        console.error("Failed to get user details:", error);
+      }
+    };
+
+    getUserId();
+  }, []);
+
+  const handleAddExpense = () => {
+    const expenseData = {
+      SelectCatagory,
+      PaymentMethod,
+      AmountSpend: parseFloat(AmountSpend),
+      Time,
+      Remarks,
+      userId,
+    };
+    dispatch(addExpense(expenseData));
+
+    SetSelectCatagory("Select Category");
+    setPaymentMethod("Select Payment Method");
+    setAmountSpend("");
+    setTime("");
+    setRemarks("");
   };
+
   return (
     <div className="dashboardParent">
       <div className="mb-10">
@@ -21,13 +62,12 @@ export default function AddExpanse() {
         </div>
         <div className="flex flex-col px-3 mb-14">
           <select
-            name="Select Catagory"
-            onChange={handleSelectChange}
-            defaultValue="Select Catagory"
+            onChange={(e) => SetSelectCatagory(e.target.value)}
+            value={SelectCatagory}
             className="bg-white p-[10px] hover:cursor-pointer opacity-[51%] border-b-[1px]"
           >
-            <option value="Select Catagory" hidden disabled>
-              Select Catagory
+            <option value="Select Category" disabled>
+              Select Category
             </option>
             <option value="Grocery">Grocery</option>
             <option value="Transportation">Transportation</option>
@@ -35,23 +75,49 @@ export default function AddExpanse() {
             <option value="Food and Drink">Food and Drink</option>
             <option value="Entertainment">Entertainment</option>
           </select>
+
+          <select
+            onChange={(e) => setPaymentMethod(e.target.value)}
+            value={PaymentMethod}
+            className="bg-white p-[10px] hover:cursor-pointer opacity-[51%] border-b-[1px]"
+          >
+            <option value="Select Payment Method" disabled>
+              Select Payment Method
+            </option>
+            <option value="UPI">UPI</option>
+            <option value="Card">Card</option>
+            <option value="Cash">Cash</option>
+          </select>
+
           <input
             type="text"
+            value={AmountSpend}
+            onChange={(e) => setAmountSpend(e.target.value)}
             className="p-[10px] outline-none border-b-[0.8px] placeholder:text-black placeholder:opacity-[51%]"
-            placeholder="Amount spend"
+            placeholder="AmountSpend"
           />
+
           <input
             type="text"
+            value={Time}
+            onChange={(e) => setTime(e.target.value)}
             className="p-[10px] outline-none border-b-[0.8px] placeholder:text-black placeholder:opacity-[51%]"
             placeholder="Time"
           />
+
           <input
             type="text"
+            value={Remarks}
+            onChange={(e) => setRemarks(e.target.value)}
             className="p-[10px] outline-none border-b-[0.8px] placeholder:text-black placeholder:opacity-[51%]"
             placeholder="Remarks"
           />
         </div>
-        <button className="bg-[#101010] outline-none md:translate-x-[14dvw] max-md:w-full text-white font-semibold py-3 w-[40%] rounded-lg text-2xl">
+
+        <button
+          onClick={handleAddExpense}
+          className="bg-[#101010] outline-none md:translate-x-[14dvw] max-md:w-full text-white font-semibold py-3 w-[40%] rounded-lg text-2xl"
+        >
           Add
         </button>
       </div>

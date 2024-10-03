@@ -1,6 +1,15 @@
+// import LogoutBtn from "./LogoutBtn";
 import Avatar from "../../assets/avatar.png";
+import authService from "../../appwrite/auth/auth";
+import { useNavigate } from "react-router-dom";
 
 export default function Accounts() {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    authService.logout();
+    navigate("/");
+  };
+
   return (
     <div className="py-14 px-[4.5dvw] w-full relative">
       <div className="mb-10">
@@ -22,16 +31,19 @@ export default function Accounts() {
             </div>
           </div>
           <div>
-            <button className="bg-[#D9D9D9] rounded-md block mb-3 h-8 text-sm font-semibold w-full">
+            <button className="bg-[#D9D9D9] rounded-md block mb-3 py-2 text-sm font-semibold w-full">
               Manage account
             </button>
-            <button className="bg-[#D9D9D9] rounded-md h-8 text-sm font-semibold px-24">
+            <button className="bg-[#D9D9D9] rounded-md py-2 text-sm font-semibold px-24">
               Change password
             </button>
           </div>
         </div>
       </div>
-      <button className="bg-[#D9D9D9] px-6 py-1 rounded-md absolute right-16 bottom-8">
+      <button
+        onClick={handleLogout}
+        className="bg-[#D9D9D9] px-6 py-1 rounded-md absolute right-16 bottom-8"
+      >
         log out
       </button>
     </div>

@@ -1,8 +1,27 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
+import authService from "../appwrite/auth/auth";
 import { DashboardLinks, ExpenseDetails } from "./index";
 
 export default function layout() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      try {
+        if (!authService.getCurrentUser()) {
+          navigate("/"); // Redirect if not authenticated
+        }
+      } catch (error) {
+        console.error("An unexpected error occurred:", error);
+      } finally {
+        console.clear();
+      }
+    };
+
+    checkAuthentication();
+  }, [navigate]);
+
   return (
     <div className="bg-black max-h-[100dvh]">
       <div className="flex lg:py-[2.67dvh] lg:px-3">
