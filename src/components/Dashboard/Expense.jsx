@@ -1,5 +1,7 @@
 import React from "react";
 import Graph from "./Graph";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchExpenses } from "../../redux/expenseSlice";
 
 export default function Expense() {
   return (
@@ -13,6 +15,7 @@ export default function Expense() {
       <div className="w-full">
         <Graph />
       </div>
+      <div></div>
     </div>
   );
 }

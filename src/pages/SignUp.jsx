@@ -1,5 +1,9 @@
 import blind from "../assets/blind.png";
-import React, { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import { login } from "../redux/authSlice";
+import authService from "../appwrite/auth/auth";
+import React, { useRef, useState, useEffect } from "react";
 import GoogleLogo from "../assets/googlelogo.png";
 import { useNavigate, NavLink } from "react-router-dom";
 import blacklogoimg from "../assets/pnglogofinal-black.png";
@@ -7,22 +11,39 @@ import whitelogoimg from "../assets/pnglogofinal-white.png";
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const refPassword = useRef(null);
+  const [error, setError] = useState("");
+  const { register, handleSubmit } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClick = () => {
     navigate("/");
   };
 
-  const handleLogin = () => {
-    navigate("/dashboard");
+  const create = async (data) => {
+    setError("");
+    console.log(data);
+    try {
+      console.log(10);
+      const userData = await authService.createAccount(data);
+      console.log(userData);
+      if (userData) {
+        const userData = await authService.getCurrentUser();
+        if (userData) dispatch(login(userData));
+        console.log(30);
+        navigate("/dashboard");
+      }
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
-  const handlePassword = (e) => {
+  const handlePassword = () => {
     setShowPassword(!showPassword);
-    showPassword
-      ? (refPassword.current.type = "text")
-      : (refPassword.current.type = "password");
+    if (refPassword.current) {
+      refPassword.current.type = showPassword ? "password" : "text";
+    }
   };
 
   return (
@@ -56,21 +77,45 @@ function Login() {
               Sign up with Google
             </button>
           </div>
-          <form action="#" className="flex flex-col">
-            <input type="text" className="loginInput" placeholder="Full Name" />
+          <form
+            onSubmit={handleSubmit(create)}
+            action="#"
+            className="flex flex-col"
+          >
+            <input
+              type="text"
+              className="loginInput"
+              autoComplete="off"
+              placeholder="Full Name"
+              {...register("name", { required: true })}
+            />
             <div className="inputBorder"></div>
             <input
               type="email"
               className="loginInput"
               placeholder="Email Address"
+              autoComplete="off"
+              {...register("email", {
+                required: true,
+                validate: {
+                  matchPatern: (value) =>
+                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                    "Email address must be a valid address",
+                },
+              })}
             />
             <div className="inputBorder"></div>
             <div className="relative">
               <input
-                type="text"
-                ref={refPassword}
+                type="password"
                 placeholder="Password"
                 className="loginInput w-[90%]"
+                autoComplete="off"
+                {...register("password", { required: true })}
+                ref={(e) => {
+                  register("password", { required: true }).ref(e);
+                  refPassword.current = e;
+                }}
               />
               <img
                 src={blind}
@@ -80,10 +125,7 @@ function Login() {
               />
             </div>
             <div className="inputBorder"></div>
-            <button
-              onClick={handleLogin}
-              className="bg-[#DEDEDE] my-7 text-black font-bold text-[clamp(0.74rem,5dvw,1.1rem)] rounded-md h-[2.3rem]"
-            >
+            <button className="bg-[#DEDEDE] my-7 text-black font-bold text-[clamp(0.74rem,5dvw,1.1rem)] rounded-md h-[2.3rem]">
               Create Account
             </button>
           </form>

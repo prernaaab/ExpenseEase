@@ -1,3 +1,4 @@
+import LogoutBtn from "./LogoutBtn";
 import Avatar from "../../assets/avatar.png";
 
 export default function Accounts() {
@@ -31,9 +32,7 @@ export default function Accounts() {
           </div>
         </div>
       </div>
-      <button className="bg-[#D9D9D9] px-6 py-1 rounded-md absolute right-16 bottom-8">
-        log out
-      </button>
+      <LogoutBtn />
     </div>
   );
 }
