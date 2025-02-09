@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import imgCard1 from "../../images/first.jpeg";
 import imgCard2 from "../../images/second.jpeg";
 import imgCard3 from "../../images/third.jpeg";
 
 function Portfolio() {
-  const [portfolio, setPortfolio] = useState([
+  const portfolio = [
     {
       photo: imgCard1,
       heading: "Better Financial Management",
@@ -27,7 +27,7 @@ function Portfolio() {
             saving you time and effort. Simply input your 
             expenses, and let our app handle the rest.`,
     },
-  ]);
+  ];
   return (
     <div className="mx-24 max-lg:mx-[15%] my-32">
       <div className="my-9">

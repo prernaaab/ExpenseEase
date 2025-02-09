@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Features() {
-  const [features, setFeatures] = useState([
+  const features = [
     {
       heading: "Expense Categorisation",
       para: "Effortlessly categorize your expenses for better organization.",
@@ -14,7 +14,7 @@ export default function Features() {
       heading: "Reporting",
       para: "Generate detailed reports to gain insights into your spending habits.",
     },
-  ]);
+  ];
   return (
     <div className="flex gap-2 flex-wrap break-all">
       {features.map((items) => {

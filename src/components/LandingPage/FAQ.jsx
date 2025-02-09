@@ -3,7 +3,7 @@ import hide from "../../assets/hide.svg";
 import React, { useState } from "react";
 
 function FAQ() {
-  const [FAQ, setFAQ] = useState([
+  const FAQ = [
     {
       id: 1,
       question: "Is my data secure?",
@@ -34,7 +34,7 @@ function FAQ() {
       answer:
         "Absolutely! Our expense tracker web app allows you to easily export your expense data in various formats, such as CSV or PDF. You can then use this data for your own analysis or for tax purposes.",
     },
-  ]);
+  ];
 
   const [showAnswer, setShowAnswer] = useState(null);
 

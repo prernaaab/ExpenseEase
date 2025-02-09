@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import Marquee from "react-fast-marquee";
 
-export default function MarqueeEffect({ item }) {
+function MarqueeEffect({ item }) {
   const halfIndex = Math.ceil(item.length / 2); // Calculate the halfway point
   const firstHalf = item.slice(0, halfIndex); // Get the first half
   const secondHalf = item.slice(halfIndex); // Get the second half
@@ -36,3 +36,5 @@ export default function MarqueeEffect({ item }) {
     </>
   );
 }
+
+export default memo(MarqueeEffect);
