@@ -1,28 +1,45 @@
 import blind from "../assets/blind.png";
-import React, { useRef, useState } from "react";
-import GoogleLogo from "../assets/googlelogo.png";
+import { useDispatch } from "react-redux";
+import { useForm } from "react-hook-form";
+import { login } from "../redux/authSlice";
+import authService from "../appwrite/auth/auth";
+// import GoogleLogo from "../assets/googlelogo.png";
 import { useNavigate, NavLink } from "react-router-dom";
+import React, { useRef, useState, useEffect } from "react";
 import blacklogoimg from "../assets/pnglogofinal-black.png";
 import whitelogoimg from "../assets/pnglogofinal-white.png";
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const refPassword = useRef(null);
+  const [error, setError] = useState("");
+  const { register, handleSubmit } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClick = () => {
     navigate("/");
   };
 
-  const handleLogin = () => {
-    navigate("/dashboard");
+  const create = async (data) => {
+    setError("");
+    try {
+      const newUserData = await authService.createAccount(data);
+      if (newUserData) {
+        const currentUser = await authService.getCurrentUser();
+        if (currentUser) dispatch(login(currentUser));
+        navigate("/dashboard");
+      }
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
-  const handlePassword = (e) => {
+  const handlePassword = () => {
     setShowPassword(!showPassword);
-    showPassword
-      ? (refPassword.current.type = "text")
-      : (refPassword.current.type = "password");
+    if (refPassword.current) {
+      refPassword.current.type = showPassword ? "password" : "text";
+    }
   };
 
   return (
@@ -47,30 +64,46 @@ function Login() {
             <h2 className="text-[clamp(0.74rem,5dvw,1.5rem)] font-semibold mb-[1rem] text-white tracking-widest">
               Create Account
             </h2>
-            <button className="outline-none pl-1 pr-3 h-12 text-[clamp(0.4rem,2dvw,0.7rem)] text-white flex items-center">
-              <img
-                src={GoogleLogo}
-                alt="logo"
-                className="h-[clamp(1.6rem,2.8dvw,2.7rem)] mr-2"
-              />{" "}
-              Sign up with Google
-            </button>
           </div>
-          <form action="#" className="flex flex-col">
-            <input type="text" className="loginInput" placeholder="Full Name" />
+          <form
+            onSubmit={handleSubmit(create)}
+            action="#"
+            className="flex flex-col"
+          >
+            <input
+              type="text"
+              className="loginInput"
+              autoComplete="off"
+              placeholder="Full Name"
+              {...register("name", { required: true })}
+            />
             <div className="inputBorder"></div>
             <input
               type="email"
+              autoComplete="off"
               className="loginInput"
               placeholder="Email Address"
+              {...register("email", {
+                required: true,
+                validate: {
+                  matchPatern: (value) =>
+                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                    "Email address must be a valid address",
+                },
+              })}
             />
             <div className="inputBorder"></div>
             <div className="relative">
               <input
-                type="text"
-                ref={refPassword}
+                type="password"
+                autoComplete="off"
                 placeholder="Password"
                 className="loginInput w-[90%]"
+                {...register("password", { required: true })}
+                ref={(e) => {
+                  register("password", { required: true }).ref(e);
+                  refPassword.current = e;
+                }}
               />
               <img
                 src={blind}
@@ -80,10 +113,7 @@ function Login() {
               />
             </div>
             <div className="inputBorder"></div>
-            <button
-              onClick={handleLogin}
-              className="bg-[#DEDEDE] my-7 text-black font-bold text-[clamp(0.74rem,5dvw,1.1rem)] rounded-md h-[2.3rem]"
-            >
+            <button className="bg-[#DEDEDE] my-7 text-black font-bold text-[clamp(0.74rem,5dvw,1.1rem)] rounded-md h-[2.3rem]">
               Create Account
             </button>
           </form>
