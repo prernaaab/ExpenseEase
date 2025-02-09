@@ -14,13 +14,7 @@ git clone https://github.com/Harshil-0707/ExpenseEase.git
 npm i
 ```
 
-- step 3 : Run this command to install tailwind related resources.
-
-```
-npm install -D tailwindcss postcss autoprefixer
-```
-
-- Step 4 : Run your React App.
+- Step 3 : Run your React App.
 
 ```
 npm run dev
