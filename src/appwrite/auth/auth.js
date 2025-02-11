@@ -35,7 +35,7 @@ const getCurrentUser = async () => {
     try {
         return await account.get();
     } catch (error) {
-        // console.log("Appwrite service :: getCurrentUser :: error", error);
+        console.log("Appwrite service :: getCurrentUser :: error", error);
     }
     return null;
 };
