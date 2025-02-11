@@ -15,7 +15,7 @@ export default function layout() {
       } catch (error) {
         console.error("An unexpected error occurred:", error);
       } finally {
-        console.log();
+        console.clear();
       }
     };
 
