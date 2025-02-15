@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
 import authService from "../appwrite/auth/auth";
+import "react-toastify/dist/ReactToastify.css";
+import { Outlet, useNavigate } from "react-router-dom";
 import { DashboardLinks, ExpenseDetails } from "./index";
 
 export default function layout() {
@@ -11,11 +12,12 @@ export default function layout() {
       try {
         if (!authService.getCurrentUser()) {
           navigate("/"); // Redirect if not authenticated
+          return;
         }
       } catch (error) {
         console.error("An unexpected error occurred:", error);
       } finally {
-        console.clear();
+        console.log();
       }
     };
 

@@ -55,9 +55,6 @@ const expensesSlice = createSlice({
         addExpenses: (state, action) => {
             state.expenses.push(action.payload);
         },
-        setExpenses: (state, action) => {
-            state.expenses.push(action.payload);
-        }
     },
     extraReducers: (builder) => {
         builder

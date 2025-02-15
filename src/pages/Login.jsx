@@ -2,7 +2,7 @@ import blind from "../assets/blind.png";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import authService from "../appwrite/auth/auth";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { login as authLogin } from "../redux/authSlice";
 import { useNavigate, NavLink } from "react-router-dom";
 import blacklogoimg from "../assets/pnglogofinal-black.png";
@@ -12,7 +12,6 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const refPassword = useRef(null);
-  const [error, setError] = useState("");
   const { register, handleSubmit } = useForm();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -21,7 +20,6 @@ function Login() {
   };
 
   const login = async (data) => {
-    setError("");
     try {
       const session = await authService.login(data);
       if (session) {
@@ -29,8 +27,8 @@ function Login() {
         if (userData) dispatch(authLogin(userData));
         navigate("/dashboard");
       }
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      console.log(err);
     }
   };
 
