@@ -7,12 +7,12 @@ const account = new Account(client);
 
 export default function AddExpense() {
   const dispatch = useDispatch();
+  const [Time, setTime] = useState("");
   const [userId, setUserId] = useState(null);
+  const [Remarks, setRemarks] = useState("");
+  const [AmountSpend, setAmountSpend] = useState("");
   const [SelectCatagory, SetSelectCatagory] = useState("Select Category");
   const [PaymentMethod, setPaymentMethod] = useState("Select Payment Method");
-  const [AmountSpend, setAmountSpend] = useState("");
-  const [Time, setTime] = useState("");
-  const [Remarks, setRemarks] = useState("");
 
   useEffect(() => {
     // Get user details from Appwrite Account
@@ -37,13 +37,14 @@ export default function AddExpense() {
       Remarks,
       userId,
     };
+
     dispatch(addExpense(expenseData));
 
-    SetSelectCatagory("Select Category");
-    setPaymentMethod("Select Payment Method");
-    setAmountSpend("");
     setTime("");
     setRemarks("");
+    setAmountSpend("");
+    SetSelectCatagory("Select Category");
+    setPaymentMethod("Select Payment Method");
   };
 
   return (

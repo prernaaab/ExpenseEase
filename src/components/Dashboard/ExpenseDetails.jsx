@@ -1,15 +1,12 @@
 import React from "react";
 import img1 from "../../assets/Illustration-1.png";
 import img2 from "../../assets/Illustration-2.png";
+import useExpenseData from "../../hooks/useExpenseData";
 
 export default function ExpenseDetails() {
-  const stats = [
-    { title: "Food and Drinks", amount: 872 },
-    { title: "Shopping", amount: 1378 },
-    { title: "Housing", amount: 928 },
-    { title: "Transportation", amount: 420 },
-    { title: "Vehicle", amount: 520 },
-  ];
+  const { expenses, status } = useExpenseData();
+
+  // const ans = Object.groupBy(expenses, ({ SelectCatagory }) => SelectCatagory);
   return (
     <div className="bg-[#F9FAFC] max-md:w-full max-md:px-[10%] py-14 px-[3%] max-lg:w-[20rem] w-[21dvw] flex flex-col justify-between lg:rounded-e-3xl">
       <div className="max-md:mb-10">
@@ -17,7 +14,7 @@ export default function ExpenseDetails() {
           Where your money go?
         </h3>
         <div>
-          {stats.map((item) => {
+          {/* {stats.map((item) => {
             return (
               <div key={item.title} className="mb-4">
                 <div className="flex text-sm justify-between -mb-3">
@@ -32,7 +29,29 @@ export default function ExpenseDetails() {
                 />
               </div>
             );
-          })}
+          })} */}
+          {status === "succeeded" && expenses.length > 0 ? (
+            <>
+              {expenses.map((item) => {
+                return (
+                  <div key={item.$id} className="mb-4">
+                    <div className="flex text-sm justify-between -mb-3">
+                      <div className="text-xs">{item.SelectCatagory}</div>
+                      <div>{item.AmountSpend.toFixed(2)}</div>
+                    </div>
+                    <progress
+                      id="file"
+                      max={item.AmountSpend}
+                      value="32"
+                      className="h-1 w-full"
+                    />
+                  </div>
+                );
+              })}
+            </>
+          ) : (
+            <p>No expenses found</p>
+          )}
         </div>
       </div>
       <div className="rounded-lg bg-[#EDF0F6] w-full p-5 relative">

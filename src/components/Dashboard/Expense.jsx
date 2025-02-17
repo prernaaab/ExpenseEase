@@ -1,39 +1,14 @@
-import { Account } from "appwrite";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
 import Graph from "./Graph";
-import { fetchExpenses, client } from "../../redux/expenseSlice";
+import grocery from "../../assets/grocery.png";
+import useExpenseData from "../../hooks/useExpenseData";
+import entertainment from "../../assets/entertainment.png";
 
 // Assuming Appwrite client is already set up in your project
-const account = new Account(client);
+
+const imgs = [entertainment, grocery];
 
 export default function Expense() {
-  const dispatch = useDispatch();
-  const [userId, setUserId] = useState(null);
-
-  // Fetch expenses from Redux store
-  const { expenses, status, error } = useSelector((state) => state.expenses);
-
-  useEffect(() => {
-    // Get user details from Appwrite Account
-    const getUserId = async () => {
-      try {
-        const user = await account.get();
-        setUserId(user.$id); // Set userId
-      } catch (error) {
-        console.error("Failed to get user details:", error);
-      }
-    };
-
-    getUserId();
-  }, []);
-
-  useEffect(() => {
-    // Fetch expenses only when userId is available
-    if (userId) {
-      dispatch(fetchExpenses(userId));
-    }
-  }, [dispatch, userId]);
+  const { expenses, status, error } = useExpenseData();
 
   return (
     <div className="dashboardParent w-[50dvw] max-lg:w-full">
@@ -47,19 +22,32 @@ export default function Expense() {
         <Graph />
       </div>
 
-      {/* Show expenses below the graph */}
       <div className="mt-10">
         <h4 className="text-2xl font-semibold mb-5">Your Expenses</h4>
         {status === "loading" && <p>Loading expenses...</p>}
-        {status === "failed" && <p>Error: {error}</p>}
         {status === "succeeded" && expenses.length > 0 ? (
-          <ul className="list-disc ml-5">
+          <ul className="list-disc">
             {expenses.map((expense) => (
-              <li key={expense.$id} className="mb-2">
-                <span className="font-semibold">{expense.SelectCatagory}</span>:{" "}
-                {expense.AmountSpend} - {expense.Time}
-                {/* <br /> */}
-                {/* <span className="italic">Remarks: {expense.}</span> */}
+              <li
+                key={expense.$id}
+                className="mb-2 list-none flex w-full justify-between"
+              >
+                <div className="flex gap-x-5">
+                  <div>
+                    <img src={entertainment} alt="img" className="h-12" />
+                  </div>
+                  <div className="h-full">
+                    <div className="font-semibold text-[#273240]">
+                      {expense.SelectCatagory}
+                    </div>
+                    <span className="text-[rgba(64,72,82,0.5)] text-sm">
+                      {expense.Time}.{expense.Remarks}.{expense.PaymentMethod}
+                    </span>
+                  </div>
+                </div>
+                <div className="text-[#273240] font-semibold">
+                  {expense.AmountSpend}
+                </div>
               </li>
             ))}
           </ul>
