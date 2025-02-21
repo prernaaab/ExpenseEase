@@ -1,4 +1,5 @@
 import React from "react";
+import GetSumByCategory from "./GetSumByCategory";
 import img1 from "../../assets/Illustration-1.png";
 import img2 from "../../assets/Illustration-2.png";
 import useExpenseData from "../../hooks/useExpenseData";
@@ -6,7 +7,16 @@ import useExpenseData from "../../hooks/useExpenseData";
 export default function ExpenseDetails() {
   const { expenses, status } = useExpenseData();
 
-  // const ans = Object.groupBy(expenses, ({ SelectCatagory }) => SelectCatagory);
+  const total = GetSumByCategory(expenses);
+
+  const getTotalAmount = () => {
+    return expenses
+      .map((a) => a.AmountSpend)
+      .reduce((acc, curr) => acc + curr, 0);
+  };
+
+  const totalAmount = getTotalAmount();
+
   return (
     <div className="bg-[#F9FAFC] max-md:w-full max-md:px-[10%] py-14 px-[3%] max-lg:w-[20rem] w-[21dvw] flex flex-col justify-between lg:rounded-e-3xl">
       <div className="max-md:mb-10">
@@ -14,41 +24,23 @@ export default function ExpenseDetails() {
           Where your money go?
         </h3>
         <div>
-          {/* {stats.map((item) => {
-            return (
-              <div key={item.title} className="mb-4">
-                <div className="flex text-sm justify-between -mb-3">
-                  <div className="text-xs">{item.title}</div>
-                  <div>{item.amount.toFixed(2)}</div>
-                </div>
-                <progress
-                  id="file"
-                  max="100"
-                  value="32"
-                  className="h-1 w-full"
-                />
-              </div>
-            );
-          })} */}
-          {status === "succeeded" && expenses.length > 0 ? (
-            <>
-              {expenses.map((item) => {
-                return (
-                  <div key={item.$id} className="mb-4">
-                    <div className="flex text-sm justify-between -mb-3">
-                      <div className="text-xs">{item.SelectCatagory}</div>
-                      <div>{item.AmountSpend.toFixed(2)}</div>
-                    </div>
-                    <progress
-                      id="file"
-                      max={item.AmountSpend}
-                      value="32"
-                      className="h-1 w-full"
-                    />
+          {status === "succeeded" && total.length > 0 ? (
+            total.map((a, index) => {
+              return (
+                <div key={index} className="mb-4">
+                  <div className="flex text-sm justify-between -mb-3">
+                    <div className="text-xs">{a.category}</div>
+                    <div>{a.total}</div>
                   </div>
-                );
-              })}
-            </>
+                  <progress
+                    id="file"
+                    max={totalAmount}
+                    value={a.total}
+                    className="h-1 w-full"
+                  />
+                </div>
+              );
+            })
           ) : (
             <p>No expenses found</p>
           )}
