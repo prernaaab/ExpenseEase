@@ -1,14 +1,21 @@
 import Graph from "./Graph";
-import grocery from "../../assets/grocery.png";
+import Grocery from "../../assets/grocery.png";
 import useExpenseData from "../../hooks/useExpenseData";
-import entertainment from "../../assets/entertainment.png";
+import Entertainment from "../../assets/entertainment.png";
+import Transportation from "../../assets/transportation.png";
+import Housing from "../../assets/housing.png";
+import Food_and_Drink from "../../assets/food_and_drinks.png";
 
-// Assuming Appwrite client is already set up in your project
-
-const imgs = [entertainment, grocery];
+const imgs = [
+  { Entertainment: Entertainment },
+  { Grocery: Grocery },
+  { Transportation: Transportation },
+  { Housing: Housing },
+  { "Food and Drink": Food_and_Drink },
+];
 
 export default function Expense() {
-  const { expenses, status, error } = useExpenseData();
+  const { expenses, status } = useExpenseData();
 
   return (
     <div className="dashboardParent w-[50dvw] max-lg:w-full">
@@ -34,7 +41,11 @@ export default function Expense() {
               >
                 <div className="flex gap-x-5">
                   <div>
-                    <img src={entertainment} alt="img" className="h-12" />
+                    <img
+                      src={getImage(expense.SelectCatagory)}
+                      alt="img"
+                      className="h-12"
+                    />
                   </div>
                   <div className="h-full">
                     <div className="font-semibold text-[#273240]">
@@ -57,4 +68,12 @@ export default function Expense() {
       </div>
     </div>
   );
+}
+
+function getImage(category) {
+  for (let img in imgs) {
+    if (Object.keys(imgs[img]).toString() === category) {
+      return Object.values(imgs[img]).toString();
+    }
+  }
 }
