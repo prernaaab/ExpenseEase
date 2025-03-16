@@ -1,9 +1,9 @@
 import Graph from "./Graph";
 import Grocery from "../../assets/grocery.png";
+import Housing from "../../assets/housing.png";
 import useExpenseData from "../../hooks/useExpenseData";
 import Entertainment from "../../assets/entertainment.png";
 import Transportation from "../../assets/transportation.png";
-import Housing from "../../assets/housing.png";
 import Food_and_Drink from "../../assets/food_and_drinks.png";
 
 const imgs = [
@@ -39,12 +39,12 @@ export default function Expense() {
                 key={expense.$id}
                 className="mb-2 list-none flex w-full justify-between"
               >
-                <div className="flex gap-x-5">
+                <div className="flex gap-x-5 items-center">
                   <div>
                     <img
                       src={getImage(expense.SelectCatagory)}
                       alt="img"
-                      className="h-12"
+                      className="h-10"
                     />
                   </div>
                   <div className="h-full">
@@ -52,7 +52,13 @@ export default function Expense() {
                       {expense.SelectCatagory}
                     </div>
                     <span className="text-[rgba(64,72,82,0.5)] text-sm">
-                      {expense.Time}.{expense.Remarks}.{expense.PaymentMethod}
+                      {expense.Time}
+                      {expense.Remarks ? (
+                        <span> &#183; {`${expense.Remarks}`} &#183; </span>
+                      ) : (
+                        <span> &#183; </span>
+                      )}
+                      {expense.PaymentMethod}
                     </span>
                   </div>
                 </div>
@@ -71,9 +77,6 @@ export default function Expense() {
 }
 
 function getImage(category) {
-  for (let img in imgs) {
-    if (Object.keys(imgs[img]).toString() === category) {
-      return Object.values(imgs[img]).toString();
-    }
-  }
+  const foundImg = imgs.find((img) => Object.keys(img)[0] === category);
+  return foundImg ? Object.values(foundImg)[0] : null;
 }

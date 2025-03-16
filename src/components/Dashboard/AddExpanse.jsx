@@ -65,7 +65,7 @@ export default function AddExpense() {
           <select
             onChange={(e) => SetSelectCatagory(e.target.value)}
             value={SelectCatagory}
-            className="bg-white p-[10px] hover:cursor-pointer opacity-[51%] border-b-[1px]"
+            className="select"
           >
             <option value="Select Category" disabled>
               Select Category
@@ -80,7 +80,7 @@ export default function AddExpense() {
           <select
             onChange={(e) => setPaymentMethod(e.target.value)}
             value={PaymentMethod}
-            className="bg-white p-[10px] hover:cursor-pointer opacity-[51%] border-b-[1px]"
+            className="select"
           >
             <option value="Select Payment Method" disabled>
               Select Payment Method
@@ -94,12 +94,12 @@ export default function AddExpense() {
             type="text"
             value={AmountSpend}
             onChange={(e) => setAmountSpend(e.target.value)}
-            className="p-[10px] outline-none border-b-[0.8px] placeholder:text-black placeholder:opacity-[51%]"
+            className="p-[10px] outline-none border-b-[0.8px]  placeholder:text-black placeholder:opacity-[51%]"
             placeholder="AmountSpend"
           />
 
           <input
-            type="text"
+            type="date"
             value={Time}
             onChange={(e) => setTime(e.target.value)}
             className="p-[10px] outline-none border-b-[0.8px] placeholder:text-black placeholder:opacity-[51%]"

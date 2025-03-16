@@ -26,14 +26,12 @@ function useExpenseData() {
     }, []);
 
     useEffect(() => {
-        // Fetch expenses only when userId is available
-        if (userId) {
+        if (userId && expenses.length === 0) {
             dispatch(fetchExpenses(userId));
         }
-    }, [dispatch, userId]);
+    }, [dispatch, userId, expenses.length]);
 
     return { expenses, status, error };
-
 }
 
 export default useExpenseData;

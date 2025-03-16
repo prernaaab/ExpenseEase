@@ -1,4 +1,3 @@
-// import LogoutBtn from "./LogoutBtn";
 import Avatar from "../../assets/avatar.png";
 import authService from "../../appwrite/auth/auth";
 import { useNavigate } from "react-router-dom";

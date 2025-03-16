@@ -21,9 +21,9 @@ function App() {
         <Route path="/dashboard/*" element={<Layout1 />}>
           <Route index element={<AddExpanse />} />
           <Route path="Expenses" element={<Expense />} />
-          <Route path="Summary" element={<Summary />} />
         </Route>
         <Route path="/dashboard/*" element={<Layout2 />}>
+          <Route path="Summary" element={<Summary />} />
           <Route path="Accounts" element={<Accounts />} />
           <Route path="Settings" element={<Settings />} />
         </Route>

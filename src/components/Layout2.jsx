@@ -11,7 +11,6 @@ export default function layout() {
         <DashboardLinks />
         <div className="bg-white w-full max-md:flex-col max-md:items-center flex justify-between lg:rounded-3xl max-lg:h-[100dvh] lg:h-[94.65dvh]">
           <Outlet />
-          <ExpenseDetails />
         </div>
       </div>
     </div>

@@ -38,6 +38,10 @@
   .dashboardParent {
     @apply py-14 md:px-[4.5dvw] max-md:px-[7%] flex flex-col max-md:w-full;
   }
+
+  .select {
+    @apply bg-white p-[10px] hover:cursor-pointer opacity-[51%] border-b-[1px] outline-none;
+  }
 }
 
 progress::-webkit-progress-bar {
