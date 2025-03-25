@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addFeedback } from "../../redux/feedbackSlice";
-import { saveUserFeedback } from "../../appwrite/feedback/feedback";
+// import { useDispatch } from "react-redux";
+// import { addFeedback } from "../../redux/feedbackSlice";
+// import { saveUserFeedback } from "../../appwrite/feedback/feedback";
 
 function Contacts_Form() {
   const [feedbacks, setFeedbacks] = useState({
@@ -15,7 +15,7 @@ function Contacts_Form() {
     { type: "Phone", value: "+1 123-456-7890" },
     { type: "Address", value: "123 Main Street, City, State, Country" },
   ]);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,23 +23,23 @@ function Contacts_Form() {
   };
 
   const saveFeedback = async () => {
-    const { fullname, mail, address, feedback } = feedbacks;
+    // const { fullname, mail, address, feedback } = feedbacks;
 
-    if (mail && !validateEmail(mail)) {
-      alert("Please enter a valid email address.");
-      return;
-    }
+    // if (mail && !validateEmail(mail)) {
+    //   alert("Please enter a valid email address.");
+    //   return;
+    // }
+    console.log("Saved!!");
+    // try {
+    //   await saveUserFeedback(fullname, mail, address, feedback);
 
-    try {
-      await saveUserFeedback(fullname, mail, address, feedback);
+    //   // Dispatch the new feedback to the Redux store
+    //   dispatch(addFeedback({ Name: fullname, Description: feedback }));
 
-      // Dispatch the new feedback to the Redux store
-      dispatch(addFeedback({ Name: fullname, Description: feedback }));
-
-      console.log("Feedback submitted successfully.");
-    } catch (error) {
-      console.error("Error submitting feedback:", error);
-    }
+    //   console.log("Feedback submitted successfully.");
+    // } catch (error) {
+    //   console.error("Error submitting feedback:", error);
+    // }
   };
 
   const handleInputChange = (e) => {
@@ -51,7 +51,7 @@ function Contacts_Form() {
   };
 
   const handleSaveFeedback = async () => {
-    await saveFeedback();
+    // await saveFeedback();
     setFeedbacks({
       fullname: "",
       mail: "",

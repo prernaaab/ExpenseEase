@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Account } from "appwrite";
-import { useDispatch } from "react-redux";
-import { addExpense, client } from "../../redux/expenseSlice";
-
-const account = new Account(client);
+// import { Account } from "appwrite";
+// import { useDispatch } from "react-redux";
+// import { addExpense, client } from "../../redux/expenseSlice";
 
 export default function AddExpense() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [Time, setTime] = useState("");
   const [userId, setUserId] = useState(null);
   const [Remarks, setRemarks] = useState("");
@@ -14,19 +12,19 @@ export default function AddExpense() {
   const [SelectCatagory, SetSelectCatagory] = useState("Select Category");
   const [PaymentMethod, setPaymentMethod] = useState("Select Payment Method");
 
-  useEffect(() => {
-    // Get user details from Appwrite Account
-    const getUserId = async () => {
-      try {
-        const user = await account.get();
-        setUserId(user.$id); // Set userId
-      } catch (error) {
-        console.error("Failed to get user details:", error);
-      }
-    };
+  // useEffect(() => {
+  //   // Get user details from Appwrite Account
+  //   const getUserId = async () => {
+  //     try {
+  //       const user = await account.get();
+  //       setUserId(user.$id); // Set userId
+  //     } catch (error) {
+  //       console.error("Failed to get user details:", error);
+  //     }
+  //   };
 
-    getUserId();
-  }, []);
+  //   getUserId();
+  // }, []);
 
   const handleAddExpense = () => {
     const expenseData = {
@@ -38,7 +36,7 @@ export default function AddExpense() {
       userId,
     };
 
-    dispatch(addExpense(expenseData));
+    // dispatch(addExpense(expenseData));
 
     setTime("");
     setRemarks("");
@@ -116,7 +114,7 @@ export default function AddExpense() {
         </div>
 
         <button
-          onClick={handleAddExpense}
+          // onClick={handleAddExpense}
           className="bg-[#101010] outline-none md:translate-x-[14dvw] max-md:w-full text-white font-semibold py-3 w-[40%] rounded-lg text-2xl"
         >
           Add

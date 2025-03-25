@@ -1,9 +1,9 @@
 import { Outlet } from "react-router-dom";
-import useCheckAuth from "../hooks/useCheckAuth";
+// import useCheckAuth from "../hooks/useCheckAuth";
 import { DashboardLinks, ExpenseDetails } from "./index";
 
 export default function layout() {
-  useCheckAuth();
+  // useCheckAuth();
 
   return (
     <div className="bg-black max-h-[100dvh]">

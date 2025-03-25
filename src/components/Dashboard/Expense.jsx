@@ -1,7 +1,7 @@
-import Graph from "./Graph";
+// import Graph from "./Graph";
 import Grocery from "../../assets/grocery.png";
 import Housing from "../../assets/housing.png";
-import useExpenseData from "../../hooks/useExpenseData";
+// import useExpenseData from "../../hooks/useExpenseData";
 import Entertainment from "../../assets/entertainment.png";
 import Transportation from "../../assets/transportation.png";
 import Food_and_Drink from "../../assets/food_and_drinks.png";
@@ -15,7 +15,7 @@ const imgs = [
 ];
 
 export default function Expense() {
-  const { expenses, status } = useExpenseData();
+  // const { expenses, status } = useExpenseData();
 
   return (
     <div className="dashboardParent w-[50dvw] max-lg:w-full">
@@ -25,16 +25,16 @@ export default function Expense() {
           01 - 25 March, 2020
         </div>
       </div>
-      <div className="w-full">
+      {/* <div className="w-full">
         <Graph />
-      </div>
+      </div> */}
 
       <div className="mt-10">
         <h4 className="text-2xl font-semibold mb-5">Your Expenses</h4>
         {status === "loading" && <p>Loading expenses...</p>}
         {status === "succeeded" && expenses.length > 0 ? (
           <ul className="list-disc">
-            {expenses.map((expense) => (
+            {/* {expenses.map((expense) => (
               <li
                 key={expense.$id}
                 className="mb-2 list-none flex w-full justify-between"
@@ -66,7 +66,7 @@ export default function Expense() {
                   {expense.AmountSpend}
                 </div>
               </li>
-            ))}
+            ))} */}
           </ul>
         ) : (
           <p>No expenses found</p>

@@ -1,21 +1,21 @@
 import React from "react";
-import GetSumByCategory from "./GetSumByCategory";
+// import GetSumByCategory from "./GetSumByCategory";
 import img1 from "../../assets/Illustration-1.png";
 import img2 from "../../assets/Illustration-2.png";
-import useExpenseData from "../../hooks/useExpenseData";
+// import useExpenseData from "../../hooks/useExpenseData";
 
 export default function ExpenseDetails() {
-  const { expenses, status } = useExpenseData();
+  // const { expenses, status } = useExpenseData();
 
-  const total = GetSumByCategory(expenses);
+  // const total = GetSumByCategory(expenses);
 
-  const getTotalAmount = () => {
-    return expenses
-      .map((a) => a.AmountSpend)
-      .reduce((acc, curr) => acc + curr, 0);
-  };
+  // const getTotalAmount = () => {
+  //   return expenses
+  //     .map((a) => a.AmountSpend)
+  //     .reduce((acc, curr) => acc + curr, 0);
+  // };
 
-  const totalAmount = getTotalAmount();
+  // const totalAmount = getTotalAmount();
 
   return (
     <div className="bg-[#F9FAFC] max-md:w-full max-md:px-[10%] py-14 px-[3%] max-lg:w-[20rem] w-[21dvw] flex flex-col justify-between lg:rounded-e-3xl">
@@ -24,7 +24,7 @@ export default function ExpenseDetails() {
           Where your money go?
         </h3>
         <div>
-          {status === "succeeded" && total.length > 0 ? (
+          {/* {status === "succeeded" && total.length > 0 ? (
             total.map((a, index) => {
               return (
                 <div key={index} className="mb-4">
@@ -43,7 +43,7 @@ export default function ExpenseDetails() {
             })
           ) : (
             <p>No expenses found</p>
-          )}
+          )} */}
         </div>
       </div>
       <div className="rounded-lg bg-[#EDF0F6] w-full p-5 relative">

@@ -1,16 +1,16 @@
 import blind from "../assets/blind.png";
 import { useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import authService from "../appwrite/auth/auth";
-import { login as authLogin } from "../redux/authSlice";
+// import authService from "../appwrite/auth/auth";
+// import { login as authLogin } from "../redux/authSlice";
 import { useNavigate, NavLink } from "react-router-dom";
 import blacklogoimg from "../assets/pnglogofinal-black.png";
 import whitelogoimg from "../assets/pnglogofinal-white.png";
 
 function Login() {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const refPassword = useRef(null);
   const { register, handleSubmit } = useForm();
   const [showPassword, setShowPassword] = useState(false);
@@ -20,16 +20,17 @@ function Login() {
   };
 
   const login = async (data) => {
-    try {
-      const session = await authService.login(data);
-      if (session) {
-        const userData = await authService.getCurrentUser();
-        if (userData) dispatch(authLogin(userData));
-        navigate("/dashboard");
-      }
-    } catch (err) {
-      console.log(err);
-    }
+    // try {
+    //   const session = await authService.login(data);
+    //   if (session) {
+    //     const userData = await authService.getCurrentUser();
+    //     if (userData) dispatch(authLogin(userData));
+    //     navigate("/dashboard");
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // }
+    console.log("Login!!");
   };
 
   const handlePassword = () => {

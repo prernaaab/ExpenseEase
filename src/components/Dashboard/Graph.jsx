@@ -1,9 +1,9 @@
 import React from "react";
-import useExpenseData from "../../hooks/useExpenseData";
+// import useExpenseData from "../../hooks/useExpenseData";
 import { BarChart, Bar, ResponsiveContainer } from "recharts";
 
 const MyBarChart = () => {
-  const { expenses } = useExpenseData();
+  // const { expenses } = useExpenseData();
 
   return (
     <div className="h-24">

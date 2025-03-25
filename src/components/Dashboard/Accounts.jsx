@@ -1,14 +1,13 @@
 import Avatar from "../../assets/avatar.png";
-import authService from "../../appwrite/auth/auth";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 export default function Accounts() {
-  const navigate = useNavigate();
-  const { name, email } = useSelector((state) => state.NameEmail);
+  // const navigate = useNavigate();
+  // const { name, email } = useSelector((state) => state.NameEmail);
 
   const handleLogout = () => {
-    authService.logout();
+    // authService.logout();
     navigate("/");
   };
 
@@ -28,8 +27,8 @@ export default function Accounts() {
           <div className="flex h-16 gap-x-3 items-center w-full px-7">
             <img src={Avatar} className="bg-[#D9D9D9] rounded-lg py-2 px-3" />
             <div>
-              <div className="text-xl">{name}</div>
-              <div className="text-xs">{email}</div>
+              <div className="text-xl">name</div>
+              <div className="text-xs">email</div>
             </div>
           </div>
           <div>

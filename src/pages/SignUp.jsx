@@ -1,17 +1,16 @@
 import blind from "../assets/blind.png";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { login } from "../redux/authSlice";
-import authService from "../appwrite/auth/auth";
-// import GoogleLogo from "../assets/googlelogo.png";
+// import { login } from "../redux/authSlice";
+// import authService from "../appwrite/auth/auth";
 import { useNavigate, NavLink } from "react-router-dom";
 import React, { useRef, useState, useEffect } from "react";
 import blacklogoimg from "../assets/pnglogofinal-black.png";
 import whitelogoimg from "../assets/pnglogofinal-white.png";
 
 function Login() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
   const refPassword = useRef(null);
   const [error, setError] = useState("");
   const { register, handleSubmit } = useForm();
@@ -22,17 +21,18 @@ function Login() {
   };
 
   const create = async (data) => {
-    setError("");
-    try {
-      const newUserData = await authService.createAccount(data);
-      if (newUserData) {
-        const currentUser = await authService.getCurrentUser();
-        if (currentUser) dispatch(login(currentUser));
-        navigate("/dashboard");
-      }
-    } catch (error) {
-      setError(error.message);
-    }
+    // setError("");
+    // try {
+    //   const newUserData = await authService.createAccount(data);
+    //   if (newUserData) {
+    //     const currentUser = await authService.getCurrentUser();
+    //     if (currentUser) dispatch(login(currentUser));
+    //     navigate("/dashboard");
+    //   }
+    // } catch (error) {
+    //   setError(error.message);
+    // }
+    console.log(1);
   };
 
   const handlePassword = () => {

@@ -1,33 +1,33 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { setFeedbackList } from "../../redux/feedbackSlice";
-import { database } from "../../appwrite/feedback/feedback";
-import Marquee from "./MarqueeEffect";
+// import { useSelector, useDispatch } from "react-redux";
+// import { setFeedbackList } from "../../redux/feedbackSlice";
+// import { database } from "../../appwrite/feedback/feedback";
+// import Marquee from "./MarqueeEffect";
 
 function Feedback() {
-  const feedbacks = useSelector((state) => state.feedback.feedbackList);
-  const dispatch = useDispatch();
+  // const feedbacks = useSelector((state) => state.feedback.feedbackList);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchFeedbacks = async () => {
-      try {
-        const response = await database.listDocuments(
-          import.meta.env.VITE_APPWRITE_DATABASE_ID,
-          import.meta.env.VITE_APPWRITE_COLLECTION_ID_USERFEEDBACK
-        );
-        // Map the data to match your existing state structure
-        const fetchedFeedbacks = response.documents.map((doc) => ({
-          Name: doc.Name,
-          Description: doc.Description,
-        }));
+  // useEffect(() => {
+  //   const fetchFeedbacks = async () => {
+  //     try {
+  //       const response = await database.listDocuments(
+  //         import.meta.env.VITE_APPWRITE_DATABASE_ID,
+  //         import.meta.env.VITE_APPWRITE_COLLECTION_ID_USERFEEDBACK
+  //       );
+  //       // Map the data to match your existing state structure
+  //       const fetchedFeedbacks = response.documents.map((doc) => ({
+  //         Name: doc.Name,
+  //         Description: doc.Description,
+  //       }));
 
-        dispatch(setFeedbackList([...fetchedFeedbacks]));
-      } catch (error) {
-        console.error("Error fetching feedbacks:", error);
-      }
-    };
-    fetchFeedbacks();
-  }, [dispatch]);
+  //       dispatch(setFeedbackList([...fetchedFeedbacks]));
+  //     } catch (error) {
+  //       console.error("Error fetching feedbacks:", error);
+  //     }
+  //   };
+  //   fetchFeedbacks();
+  // }, [dispatch]);
 
   return (
     <div className="mx-24 max-xl:mx-[10%]">
@@ -38,7 +38,7 @@ function Feedback() {
         Read what our satisfied users have to say about their experience with
         our expense tracker web app.
       </div>
-      <Marquee item={feedbacks} />
+      {/* <Marquee item={feedbacks} /> */}
     </div>
   );
 }
