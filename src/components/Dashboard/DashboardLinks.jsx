@@ -2,21 +2,15 @@ import React, { useEffect } from "react";
 // import authService from "../../appwrite/auth/auth";
 // import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
+import vector from "../../images/vector.svg";
+import accounts from "../../images/accounts.svg";
+import settings from "../../images/setting.svg";
+import expenses from "../../images/expense.svg";
+import summary from "../../images/summary.svg";
+import { s } from "framer-motion/client";
 // import { changeNameAndEmail } from "../../redux/NameAndEmailSlice";
 
 function DashboardLinks() {
-  // const location = useLocation();
-  // const dispatch = useDispatch();
-  // const { name, email } = useSelector((state) => state.NameEmail);
-
-  // useEffect(() => {
-  //   authService
-  //     .getCurrentUser()
-  //     .then((data) =>
-  //       dispatch(changeNameAndEmail({ name: data.name, email: data.email }))
-  //     );
-  // }, []);
-
   const isActiveLink = (path) => {
     return location.pathname.replace(/\/$/, "") === path.replace(/\/$/, "");
   };
@@ -31,44 +25,78 @@ function DashboardLinks() {
       <div className="flex flex-col gap-6 mt-10 text-xl font-bold text-white">
         <NavLink
           to="/dashboard"
-          className={`${
-            isActiveLink("/dashboard") ? "opacity-100" : "opacity-50"
+          className={({ isActive }) =>
+            `flex items-center ${
+              isActive ? "opacity-100" : "opacity-50"
+            }`
           }
-          `}
           end
         >
-          Add expanse
+          <img
+            src={vector}
+            alt="Add Expense Icon"
+            className="w-6 h-6 mr-3"
+          />
+          Add expense
         </NavLink>
         <NavLink
           to="/dashboard/Expenses"
           className={({ isActive }) =>
-            `${isActive ? "opacity-100" : "opacity-50"}`
+            `flex items-center ${
+              isActive ? "opacity-100" : "opacity-50"
+            }`
           }
         >
+          <img
+            src={expenses}
+            alt="Expenses Icon"
+            className="w-6 h-6 mr-3"
+          />
           Expenses
         </NavLink>
         <NavLink
           to="/dashboard/Summary"
           className={({ isActive }) =>
-            `${isActive ? "opacity-100" : "opacity-50"}`
+            `flex items-center ${
+              isActive ? "opacity-100" : "opacity-50"
+            }`
           }
         >
+          <img
+            src={summary}
+            alt="Summary Icon"
+            className="w-6 h-6 mr-3"
+          />
           Summary
         </NavLink>
         <NavLink
           to="/dashboard/Accounts"
           className={({ isActive }) =>
-            `${isActive ? "opacity-100" : "opacity-50"}`
+            `flex items-center ${
+              isActive ? "opacity-100" : "opacity-50"
+            }`
           }
         >
+          <img
+            src={accounts}
+            alt="Accounts Icon"
+            className="w-6 h-6 mr-3"
+          />
           Accounts
         </NavLink>
         <NavLink
           to="/dashboard/Settings"
           className={({ isActive }) =>
-            `${isActive ? "opacity-100" : "opacity-50"}`
+           `flex items-center ${
+              isActive ? "opacity-100" : "opacity-50"
+            }`
           }
         >
+          <img
+            src={settings}
+            alt="Settings Icon"
+            className="w-6 h-6 mr-3"
+          />
           Settings
         </NavLink>
       </div>
