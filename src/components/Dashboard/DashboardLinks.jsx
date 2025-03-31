@@ -5,7 +5,7 @@ import { NavLink, useLocation } from "react-router-dom";
 // import { changeNameAndEmail } from "../../redux/NameAndEmailSlice";
 
 function DashboardLinks() {
-  // const location = useLocation();
+  const location = useLocation();
   // const dispatch = useDispatch();
   // const { name, email } = useSelector((state) => state.NameEmail);
 
@@ -40,7 +40,7 @@ function DashboardLinks() {
           Add expanse
         </NavLink>
         <NavLink
-          to="/dashboard/Expenses"
+          to="/dashboard/expenses"
           className={({ isActive }) =>
             `${isActive ? "opacity-100" : "opacity-50"}`
           }

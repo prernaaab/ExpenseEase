@@ -31,10 +31,10 @@ export default function Expense() {
 
       <div className="mt-10">
         <h4 className="text-2xl font-semibold mb-5">Your Expenses</h4>
-        {status === "loading" && <p>Loading expenses...</p>}
-        {status === "succeeded" && expenses.length > 0 ? (
-          <ul className="list-disc">
-            {/* {expenses.map((expense) => (
+        {/* {status === "loading" && <p>Loading expenses...</p>} */}
+        {/* {status === "succeeded" && expenses.length > 0 ? ( */}
+        <ul className="list-disc">
+          {/* {expenses.map((expense) => (
               <li
                 key={expense.$id}
                 className="mb-2 list-none flex w-full justify-between"
@@ -67,10 +67,9 @@ export default function Expense() {
                 </div>
               </li>
             ))} */}
-          </ul>
-        ) : (
-          <p>No expenses found</p>
-        )}
+        </ul>
+        {/* ) : (<p>No expenses found</p> */}
+        {/* )} */}
       </div>
     </div>
   );
