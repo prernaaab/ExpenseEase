@@ -28,6 +28,7 @@ function HeroSection() {
             Get Started
           </button>
         </div>
+        
       </div>
       <div className=" w-full overflow-hidden max-xl:hidden">
         <ImgMarquee images={heroImgs} />

@@ -14,5 +14,12 @@ import HeroSection from "./LandingPage/HeroSection";
 import DashboardLinks from "./Dashboard/DashboardLinks";
 import Contects_Form from "./LandingPage/Contacts&form";
 import ExpenseDetails from "./Dashboard/ExpenseDetails";
+import DockDemo from "./LandingPage/BottomBar";
+import { Dock, DockIcon, dockVariants } from "./dock";
+import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "./ui/ToolTip";
+import {Separator} from "./ui/Separator";
+import { Button, buttonVariants } from "./ui/Button";
+import { ModeToggle } from "./ModeToggle";
+import {cn} from "../lib/utils";
 
-export { FAQ, Features, Work, Accounts, Summary, Settings, Expense, Feedback, Portfolio, HeroSection, Contects_Form, DashboardLinks, Layout1, Layout2, AddExpanse, ExpenseDetails };
+export { FAQ, Features, Work, Accounts, Summary, Settings, Expense, Feedback, Portfolio, HeroSection, Contects_Form, DashboardLinks, Layout1, Layout2, AddExpanse, ExpenseDetails, DockDemo, Dock, DockIcon, dockVariants, Tooltip, TooltipTrigger, TooltipContent, TooltipProvider, Separator, Button, buttonVariants, ModeToggle, cn };

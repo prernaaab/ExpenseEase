@@ -13,6 +13,11 @@ export default {
       backgroundImage: {
         'signup-bg': "url('./src/images/signup-bg.jpg')"
       },
+      colors: {
+        'primary-text': '#294956',
+        'secondary-text': '#6F7482',
+        'link': '#1d4ae8'
+      }
     },
   },
   plugins: [],

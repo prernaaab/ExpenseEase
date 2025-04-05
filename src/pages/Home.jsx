@@ -6,6 +6,7 @@ import {
   Features,
   Contects_Form,
   Work,
+  DockDemo,
 } from "../components";
 import React from "react";
 
@@ -32,6 +33,17 @@ export default function Home() {
       <Feedback />
       <FAQ />
       <Contects_Form />
+      <div
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 1000,
+        }}
+      >
+        <DockDemo />
+      </div>
     </>
   );
 }
