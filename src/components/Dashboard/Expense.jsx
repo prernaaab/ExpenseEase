@@ -1,10 +1,12 @@
 // import Graph from "./Graph";
+import QuickAdd from "./QuickAdd";
 import Grocery from "../../assets/grocery.png";
 import Housing from "../../assets/housing.png";
 // import useExpenseData from "../../hooks/useExpenseData";
 import Entertainment from "../../assets/entertainment.png";
 import Transportation from "../../assets/transportation.png";
 import Food_and_Drink from "../../assets/food_and_drinks.png";
+import { useState } from "react";
 
 const imgs = [
   { Entertainment: Entertainment },
@@ -70,6 +72,7 @@ export default function Expense() {
         </ul>
         {/* ) : (<p>No expenses found</p> */}
         {/* )} */}
+        <QuickAdd />
       </div>
     </div>
   );

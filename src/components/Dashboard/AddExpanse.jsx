@@ -1,19 +1,29 @@
-import React, { useState, useEffect, useMemo } from "react";
-// import { Account } from "appwrite";
+import React, { useState } from "react";
+import useAddExpense from "../../hooks/useAddExpense";
+
 // import { useDispatch } from "react-redux";
 // import { addExpense, client } from "../../redux/expenseSlice";
 
 export default function AddExpense() {
   // const dispatch = useDispatch();
-  // let date = useMemo(() => new Date(), []);
-  const [Time, setTime] = useState("");
-  const [userId, setUserId] = useState("");
-  const [Remarks, setRemarks] = useState("");
-  const [disable, setDisable] = useState(false);
-  const [AmountSpend, setAmountSpend] = useState("");
+  const {
+    Time,
+    setTime,
+    userId,
+    setUserId,
+    Remarks,
+    setRemarks,
+    AmountSpend,
+    setAmountSpend,
+    SelectCatagory,
+    SetSelectCatagory,
+    PaymentMethod,
+    setPaymentMethod,
+    disable,
+    handleAddExpense,
+    handleClear,
+  } = useAddExpense();
   const [transactionType, setTransactionType] = useState("Income");
-  const [SelectCatagory, SetSelectCatagory] = useState("Select Category");
-  const [PaymentMethod, setPaymentMethod] = useState("Select Payment Method");
 
   // useEffect(() => {
   //   // Get user details from Appwrite Account
@@ -28,33 +38,6 @@ export default function AddExpense() {
 
   //   getUserId();
   // }, []);
-
-  const date = new Date();
-  let one = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
-
-  const handleAddExpense = () => {
-    setDisable(true);
-    const expenseData = {
-      SelectCatagory,
-      PaymentMethod,
-      AmountSpend: parseFloat(AmountSpend) || 0,
-      Time: Time || one,
-      Remarks,
-      userId,
-    };
-    // dispatch(addExpense(expenseData));
-
-    handleClear();
-  };
-
-  const handleClear = () => {
-    setTime("");
-    setRemarks("");
-    setAmountSpend("");
-    SetSelectCatagory("Select Category");
-    setPaymentMethod("Select Payment Method");
-    setDisable(false);
-  };
 
   return (
     <div className="dashboardParent">

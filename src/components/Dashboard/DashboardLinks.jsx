@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import authService from "../../appwrite/auth/auth";
 // import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 // import { changeNameAndEmail } from "../../redux/NameAndEmailSlice";
