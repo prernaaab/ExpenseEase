@@ -44,18 +44,26 @@
   }
 }
 
+/* placeholder text style */
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+  color: #888;
+}
+
 progress::-webkit-progress-bar {
   background-color: #e5e7eb;
   border-radius: 0.5rem;
 }
 
 progress::-webkit-progress-value {
-  background-color: #10b981;
+  background-color: rgba(21, 122, 255, 1);
   border-radius: 0.5rem;
 }
 
 progress::-moz-progress-bar {
-  background-color: #10b981;
+  background-color: #3b65a7;
   border-radius: 0.5rem;
 }
 

@@ -1,10 +1,12 @@
 // import Graph from "./Graph";
+import QuickAdd from "./QuickAdd";
 import Grocery from "../../assets/grocery.png";
 import Housing from "../../assets/housing.png";
 // import useExpenseData from "../../hooks/useExpenseData";
 import Entertainment from "../../assets/entertainment.png";
 import Transportation from "../../assets/transportation.png";
 import Food_and_Drink from "../../assets/food_and_drinks.png";
+import { useState } from "react";
 
 const imgs = [
   { Entertainment: Entertainment },
@@ -31,10 +33,10 @@ export default function Expense() {
 
       <div className="mt-10">
         <h4 className="text-2xl font-semibold mb-5">Your Expenses</h4>
-        {status === "loading" && <p>Loading expenses...</p>}
-        {status === "succeeded" && expenses.length > 0 ? (
-          <ul className="list-disc">
-            {/* {expenses.map((expense) => (
+        {/* {status === "loading" && <p>Loading expenses...</p>} */}
+        {/* {status === "succeeded" && expenses.length > 0 ? ( */}
+        <ul className="list-disc">
+          {/* {expenses.map((expense) => (
               <li
                 key={expense.$id}
                 className="mb-2 list-none flex w-full justify-between"
@@ -67,10 +69,10 @@ export default function Expense() {
                 </div>
               </li>
             ))} */}
-          </ul>
-        ) : (
-          <p>No expenses found</p>
-        )}
+        </ul>
+        {/* ) : (<p>No expenses found</p> */}
+        {/* )} */}
+        <QuickAdd />
       </div>
     </div>
   );

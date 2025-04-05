@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-// import authService from "../../appwrite/auth/auth";
 // import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import vector from "../../images/vector.svg";
@@ -11,6 +10,9 @@ import { s } from "framer-motion/client";
 // import { changeNameAndEmail } from "../../redux/NameAndEmailSlice";
 
 function DashboardLinks() {
+  const location = useLocation();
+
+
   const isActiveLink = (path) => {
     return location.pathname.replace(/\/$/, "") === path.replace(/\/$/, "");
   };
@@ -40,7 +42,7 @@ function DashboardLinks() {
           Add expense
         </NavLink>
         <NavLink
-          to="/dashboard/Expenses"
+          to="/dashboard/expenses"
           className={({ isActive }) =>
             `flex items-center ${
               isActive ? "opacity-100" : "opacity-50"

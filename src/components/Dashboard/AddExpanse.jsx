@@ -1,16 +1,29 @@
-import React, { useState, useEffect } from "react";
-// import { Account } from "appwrite";
+import React, { useState } from "react";
+import useAddExpense from "../../hooks/useAddExpense";
+
 // import { useDispatch } from "react-redux";
 // import { addExpense, client } from "../../redux/expenseSlice";
 
 export default function AddExpense() {
   // const dispatch = useDispatch();
-  const [Time, setTime] = useState("");
-  const [userId, setUserId] = useState(null);
-  const [Remarks, setRemarks] = useState("");
-  const [AmountSpend, setAmountSpend] = useState("");
-  const [SelectCatagory, SetSelectCatagory] = useState("Select Category");
-  const [PaymentMethod, setPaymentMethod] = useState("Select Payment Method");
+  const {
+    Time,
+    setTime,
+    userId,
+    setUserId,
+    Remarks,
+    setRemarks,
+    AmountSpend,
+    setAmountSpend,
+    SelectCatagory,
+    SetSelectCatagory,
+    PaymentMethod,
+    setPaymentMethod,
+    disable,
+    handleAddExpense,
+    handleClear,
+  } = useAddExpense();
+  const [transactionType, setTransactionType] = useState("Income");
 
   // useEffect(() => {
   //   // Get user details from Appwrite Account
@@ -26,25 +39,6 @@ export default function AddExpense() {
   //   getUserId();
   // }, []);
 
-  const handleAddExpense = () => {
-    const expenseData = {
-      SelectCatagory,
-      PaymentMethod,
-      AmountSpend: parseFloat(AmountSpend),
-      Time,
-      Remarks,
-      userId,
-    };
-
-    // dispatch(addExpense(expenseData));
-
-    setTime("");
-    setRemarks("");
-    setAmountSpend("");
-    SetSelectCatagory("Select Category");
-    setPaymentMethod("Select Payment Method");
-  };
-
   return (
     <div className="dashboardParent">
       <div className="mb-10">
@@ -55,11 +49,38 @@ export default function AddExpense() {
           01 - 25 March, 2020
         </div>
       </div>
-      <div>
+      <div className="flex flex-col items-start">
         <div className="text-2xl font-bold pl-2 pb-3 mb-4 border-b-[0.5px] border-[#828282] md:w-[40dvw]">
-          Add expense
+          Add Transactions
         </div>
-        <div className="flex flex-col px-3 mb-14">
+        <div className="relative flex p-2 text-center w-full rounded-md font-semibold text-xl bg-[rgb(237,240,246,1)]">
+          <div
+            className={`absolute bg-black w-[50%] top-[6px] left-0 rounded-[4px] h-10 transition-transform duration-300 ease-in-out ${
+              transactionType === "Expense"
+                ? "translate-x-[97.5%]"
+                : "translate-x-2"
+            }`}
+          />
+
+          <button
+            className={`flex-1 py-1 relative z-10 ${
+              transactionType === "Expense" ? "" : "text-white"
+            }`}
+            onClick={() => setTransactionType("Income")}
+          >
+            Income
+          </button>
+
+          <button
+            className={`flex-1 py-1 relative z-10 ${
+              transactionType === "Expense" ? "text-white" : ""
+            }`}
+            onClick={() => setTransactionType("Expense")}
+          >
+            Expense
+          </button>
+        </div>
+        <div className="flex flex-col w-full mb-14">
           <select
             onChange={(e) => SetSelectCatagory(e.target.value)}
             value={SelectCatagory}
@@ -90,18 +111,18 @@ export default function AddExpense() {
 
           <input
             type="text"
+            required
             value={AmountSpend}
             onChange={(e) => setAmountSpend(e.target.value)}
             className="p-[10px] outline-none border-b-[0.8px]  placeholder:text-black placeholder:opacity-[51%]"
-            placeholder="AmountSpend"
+            placeholder="Amount Spend"
           />
 
           <input
             type="date"
             value={Time}
             onChange={(e) => setTime(e.target.value)}
-            className="p-[10px] outline-none border-b-[0.8px] placeholder:text-black placeholder:opacity-[51%]"
-            placeholder="Time"
+            className="p-[10px] outline-none border-b-[0.8px] placeholder:opacity-[51%]"
           />
 
           <input
@@ -112,13 +133,23 @@ export default function AddExpense() {
             placeholder="Remarks"
           />
         </div>
-
-        <button
-          // onClick={handleAddExpense}
-          className="bg-[#101010] outline-none md:translate-x-[14dvw] max-md:w-full text-white font-semibold py-3 w-[40%] rounded-lg text-2xl"
-        >
-          Add
-        </button>
+        <div className="flex w-full justify-evenly">
+          <button
+            disabled={disable}
+            onClick={handleClear}
+            className={`bg-white outline-none text-black border-black border-2 font-semibold w-[30%] rounded-lg text-xl ${
+              disable ? "cursor-not-allowed" : ""
+            }`}
+          >
+            Clear
+          </button>
+          <button
+            onClick={handleAddExpense}
+            className="bg-[#101010] outline-none text-white font-semibold py-2 w-[30%] rounded-lg text-xl"
+          >
+            Add
+          </button>
+        </div>
       </div>
     </div>
   );
