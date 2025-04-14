@@ -3,7 +3,7 @@ import {
   Layout2,
   AddExpanse,
   Settings,
-  Accounts,
+  SetBudget,
   Expense,
   Summary,
 } from "./components";
@@ -24,7 +24,7 @@ function App() {
         </Route>
         <Route path="/dashboard/*" element={<Layout2 />}>
           <Route path="Summary" element={<Summary />} />
-          <Route path="Accounts" element={<Accounts />} />
+          <Route path="budget" element={<SetBudget />} />
           <Route path="Settings" element={<Settings />} />
         </Route>
       </Routes>

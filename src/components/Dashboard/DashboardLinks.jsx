@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import vector from "../../images/vector.svg";
-import accounts from "../../images/accounts.svg";
+import Vector from "../../assets/Vector.png";
 import settings from "../../images/setting.svg";
 import expenses from "../../images/expense.svg";
 import summary from "../../images/summary.svg";
@@ -11,7 +11,6 @@ import { s } from "framer-motion/client";
 
 function DashboardLinks() {
   const location = useLocation();
-
 
   const isActiveLink = (path) => {
     return location.pathname.replace(/\/$/, "") === path.replace(/\/$/, "");
@@ -27,78 +26,48 @@ function DashboardLinks() {
       <div className="flex flex-col gap-6 mt-10 text-xl font-bold text-white">
         <NavLink
           to="/dashboard"
-          className={({ isActive }) =>
-            `flex items-center ${
-              isActive ? "opacity-100" : "opacity-50"
-            }`
-          }
+          className={`flex items-center ${
+            isActiveLink("/dashboard") ? "opacity-100" : "opacity-50"
+          }`}
           end
         >
-          <img
-            src={vector}
-            alt="Add Expense Icon"
-            className="w-6 h-6 mr-3"
-          />
-          Add expense
+          <img src={vector} alt="Add Expense Icon" className="w-6 h-6 mr-3" />
+          Add Transaction
         </NavLink>
         <NavLink
           to="/dashboard/expenses"
           className={({ isActive }) =>
-            `flex items-center ${
-              isActive ? "opacity-100" : "opacity-50"
-            }`
+            `flex items-center ${isActive ? "opacity-100" : "opacity-50"}`
           }
         >
-          <img
-            src={expenses}
-            alt="Expenses Icon"
-            className="w-6 h-6 mr-3"
-          />
+          <img src={expenses} alt="Expenses Icon" className="w-6 h-6 mr-3" />
           Expenses
         </NavLink>
         <NavLink
           to="/dashboard/Summary"
           className={({ isActive }) =>
-            `flex items-center ${
-              isActive ? "opacity-100" : "opacity-50"
-            }`
+            `flex items-center ${isActive ? "opacity-100" : "opacity-50"}`
           }
         >
-          <img
-            src={summary}
-            alt="Summary Icon"
-            className="w-6 h-6 mr-3"
-          />
+          <img src={summary} alt="Summary Icon" className="w-6 h-6 mr-3" />
           Summary
         </NavLink>
         <NavLink
-          to="/dashboard/Accounts"
+          to="/dashboard/budget"
           className={({ isActive }) =>
-            `flex items-center ${
-              isActive ? "opacity-100" : "opacity-50"
-            }`
+            `flex items-center ${isActive ? "opacity-100" : "opacity-50"}`
           }
         >
-          <img
-            src={accounts}
-            alt="Accounts Icon"
-            className="w-6 h-6 mr-3"
-          />
-          Accounts
+          <img src={Vector} alt="Budget Icon" className="w-6 h-6 mr-3" />
+          Set Budget
         </NavLink>
         <NavLink
           to="/dashboard/Settings"
           className={({ isActive }) =>
-           `flex items-center ${
-              isActive ? "opacity-100" : "opacity-50"
-            }`
+            `flex items-center ${isActive ? "opacity-100" : "opacity-50"}`
           }
         >
-          <img
-            src={settings}
-            alt="Settings Icon"
-            className="w-6 h-6 mr-3"
-          />
+          <img src={settings} alt="Settings Icon" className="w-6 h-6 mr-3" />
           Settings
         </NavLink>
       </div>
