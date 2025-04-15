@@ -1,20 +1,24 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import vector from "../../images/vector.svg";
-import settings from "../../images/setting.svg";
+import vector from "../../assets/transaction.png";
+import Vector from "../../assets/Vector.png";
+import settings from "../../assets/Settings.png";
 import expenses from "../../images/expense.svg";
 import summary from "../../images/summary.svg";
-import budget from "../../images/budget.svg";
-
+import budget from "../../assets/budget.svg";
 
 function DashboardLinks() {
   const location = useLocation();
 
+  const isActiveLink = (path) => {
+    return location.pathname.replace(/\/$/, "") === path.replace(/\/$/, "");
+  };
+
   const navLinks = [
-    { path: "/dashboard", icon: vector, label: "Add expense" },
+    { path: "/dashboard", icon: vector, label: "Add Transactions" },
     { path: "/dashboard/expenses", icon: expenses, label: "Expenses" },
     { path: "/dashboard/Summary", icon: summary, label: "Summary" },
-    { path: "/dashboard/Accounts", icon: budget, label: "Set Budget" },
+    { path: "/dashboard/budget", icon: budget, label: "Set Budget" },
     { path: "/dashboard/Settings", icon: settings, label: "Settings" },
   ];
 
@@ -55,7 +59,9 @@ function DashboardLinks() {
             key={link.path}
             to={link.path}
             className={({ isActive }) =>
-              `flex flex-col items-center ${isActive ? "opacity-100" : "opacity-50"}`
+              `flex flex-col items-center ${
+                isActive ? "opacity-100" : "opacity-50"
+              }`
             }
             end={link.path === "/dashboard"}
           >
@@ -67,6 +73,73 @@ function DashboardLinks() {
             <span className="text-white text-xs">{link.label}</span>
           </NavLink>
         ))}
+        <div className="text-white mt-14 mx-[3dvw] w-[20dvw] max-lg:hidden">
+          <div className="bg-white h-12 w-12 rounded-md mb-3"></div>
+          <h3 className="text-2xl font-bold mb-1">name</h3>
+          <div className="text-[14px] mb-24 text-white opacity-50 text-wrap break-all">
+            email
+          </div>
+          <div className="flex flex-col gap-6 mt-10 text-xl font-bold text-white">
+            <NavLink
+              to="/dashboard"
+              className={`flex items-center ${
+                isActiveLink("/dashboard") ? "opacity-100" : "opacity-50"
+              }`}
+              end
+            >
+              <img
+                src={vector}
+                alt="Add Expense Icon"
+                className="w-6 h-6 mr-3"
+              />
+              Add Transaction
+            </NavLink>
+            <NavLink
+              to="/dashboard/expenses"
+              className={({ isActive }) =>
+                `flex items-center ${isActive ? "opacity-100" : "opacity-50"}`
+              }
+            >
+              <img
+                src={expenses}
+                alt="Expenses Icon"
+                className="w-6 h-6 mr-3"
+              />
+              Expenses
+            </NavLink>
+            <NavLink
+              to="/dashboard/Summary"
+              className={({ isActive }) =>
+                `flex items-center ${isActive ? "opacity-100" : "opacity-50"}`
+              }
+            >
+              <img src={summary} alt="Summary Icon" className="w-6 h-6 mr-3" />
+              Summary
+            </NavLink>
+            <NavLink
+              to="/dashboard/budget"
+              className={({ isActive }) =>
+                `flex items-center ${isActive ? "opacity-100" : "opacity-50"}`
+              }
+            >
+              <img src={Vector} alt="Budget Icon" className="w-6 h-6 mr-3" />
+              Set Budget
+            </NavLink>
+            <NavLink
+              to="/dashboard/Settings"
+              className={({ isActive }) =>
+                `flex items-center ${isActive ? "opacity-100" : "opacity-50"}`
+              }
+            >
+              <img
+                src={settings}
+                alt="Settings Icon"
+                className="w-6 h-6 mr-3"
+              />
+              Settings
+            </NavLink>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import DashboardWrapper from "./DashBoardWrapper";
 
 export default function Settings() {
   return (
