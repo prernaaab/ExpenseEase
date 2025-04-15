@@ -3,14 +3,16 @@ import Avatar from "../../assets/avatar.png";
 import { useNavigate } from "react-router-dom";
 // import { useSelector } from "react-redux";
 
+import DashboardWrapper from "./DashBoardWrapper";
+
 export default function SetBudget() {
   // const navigate = useNavigate();
   // const { name, email } = useSelector((state) => state.NameEmail);
 
-  const handleLogout = () => {
-    // authService.logout();
-    navigate("/");
-  };
+  // const handleLogout = () => {
+  //   // authService.logout();
+  //   navigate("/");
+  // };
 
   return (
     // <div className="py-14 px-[4.5dvw] w-full relative">
@@ -49,13 +51,13 @@ export default function SetBudget() {
     //     log out
     //   </button>
     // </div>
-    <div className="py-14 px-[4.5dvw] w-full relative">
+    <DashboardWrapper>
       <div className="mb-10">
         <h3 className="text-4xl font-semibold mb-2">ExpenseEase</h3>
         <div className="text-[#101010] opacity-50 text-sm">
           01 - 25 March, 2020
         </div>
       </div>
-    </div>
+    </DashboardWrapper>
   );
 }

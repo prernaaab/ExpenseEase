@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 // import useCheckAuth from "../hooks/useCheckAuth";
-import { DashboardLinks } from "./index";
+import { DashboardLinks, ExpenseDetails } from "./index";
 
 export default function layout() {
   // useCheckAuth();
@@ -11,6 +11,7 @@ export default function layout() {
         <DashboardLinks />
         <div className="bg-white w-full max-md:pb-24 flex flex-col overflow-hidden lg:rounded-3xl max-lg:min-h-[100dvh] lg:h-[94.65dvh]">
           <Outlet />
+          <ExpenseDetails />
         </div>
       </div>
     </div>

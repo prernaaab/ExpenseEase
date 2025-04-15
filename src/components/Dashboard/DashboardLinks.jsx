@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import vector from "../../images/vector.svg";
+import vector from "../../assets/transaction.png";
 import Vector from "../../assets/Vector.png";
-import settings from "../../images/setting.svg";
+import settings from "../../assets/Settings.png";
 import expenses from "../../images/expense.svg";
 import summary from "../../images/summary.svg";
-import budget from "../../images/budget.svg";
+import budget from "../../assets/budget.svg";
 
 function DashboardLinks() {
   const location = useLocation();
@@ -15,10 +15,10 @@ function DashboardLinks() {
   };
 
   const navLinks = [
-    { path: "/dashboard", icon: vector, label: "Add expense" },
+    { path: "/dashboard", icon: vector, label: "Add Transactions" },
     { path: "/dashboard/expenses", icon: expenses, label: "Expenses" },
     { path: "/dashboard/Summary", icon: summary, label: "Summary" },
-    { path: "/dashboard/Accounts", icon: budget, label: "Set Budget" },
+    { path: "/dashboard/budget", icon: budget, label: "Set Budget" },
     { path: "/dashboard/Settings", icon: settings, label: "Settings" },
   ];
 

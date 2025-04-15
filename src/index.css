@@ -16,7 +16,7 @@
   }
 
   .loginInput {
-    @apply outline-none border-none h-10 bg-transparent text-white placeholder:text-white;
+    @apply border-none h-10 bg-transparent text-white placeholder:text-white;
   }
 
   .inputBorder {
@@ -40,8 +40,12 @@
   }
 
   .select {
-    @apply bg-white p-[10px] hover:cursor-pointer opacity-[51%] border-b-[1px] outline-none;
+    @apply bg-white p-[10px] hover:cursor-pointer opacity-[51%] border-b-[1px];
   }
+}
+
+* {
+  outline: none;
 }
 
 /* placeholder text style */

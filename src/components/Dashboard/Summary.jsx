@@ -1,19 +1,19 @@
-import React from 'react';
-import { PieChart, Pie, Cell } from 'recharts';
+import React from "react";
+import { PieChart, Pie, Cell } from "recharts";
 
 const Summary = () => {
   // Data for pie chart
   const data = [
-    { name: 'Income', value: 67, color: '#334d7a' },
-    { name: 'Expense', value: 33, color: '#af5c5c' }
+    { name: "Income", value: 67, color: "#334d7a" },
+    { name: "Expense", value: 33, color: "#af5c5c" },
   ];
 
   // Budget tracking data with updated values
   const budgetCategories = [
-    { name: 'Food and Drinks', spent: 250, total: 1000, color: '#78be6a' },
-    { name: 'Entertainment', spent: 460, total: 1200, color: '#dd5151' },
-    { name: 'Transportation', spent: 890, total: 2000, color: '#f5a742' },
-    { name: 'Clothing', spent: 1850, total: 3500, color: '#4cba89' }
+    { name: "Food and Drinks", spent: 250, total: 1000, color: "#78be6a" },
+    { name: "Entertainment", spent: 460, total: 1200, color: "#dd5151" },
+    { name: "Transportation", spent: 890, total: 2000, color: "#f5a742" },
+    { name: "Clothing", spent: 1850, total: 3500, color: "#4cba89" },
   ];
 
   // Helper function to calculate progress percentage
@@ -23,8 +23,8 @@ const Summary = () => {
 
   return (
     <div
-      className="dashboardParent w-auto lg:w-[calc(100%-21dvw)] px-4 md:px-6 lg:px-8 h-full overflow-auto lg:overflow-hidden pb-24"
-      style={{ width: '-webkit-fill-available', paddingBottom: '6rem' }}
+      className="dashboardParent max-lg:w-full relative w-auto lg:w-[calc(100%-21dvw)] px-4 md:px-6 lg:px-8 h-full overflow-auto lg:overflow-hidden pb-24"
+      style={{ width: "-webkit-fill-available", paddingBottom: "6rem" }}
     >
       <div className="mb-6 md:mb-10">
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2">
@@ -36,7 +36,7 @@ const Summary = () => {
       </div>
 
       <div className="flex flex-col items-start w-full">
-        <div className="text-xl md:text-2xl font-bold pl-2 pb-3 mb-4 border-b-[0.5px] border-[#828282] w-full md:w-[40dvw]">
+        <div className="text-xl md:text-2xl font-bold pl-2 pb-3 mb-4 border-b-[0.5px] border-[#828282] w-full">
           Summary
         </div>
 
@@ -160,9 +160,7 @@ const Summary = () => {
                     <div className="text-orange-500 text-sm">A</div>
                   </div>
                   <div>
-                    <div className="text-sm font-medium">
-                      Transport (AMTS)
-                    </div>
+                    <div className="text-sm font-medium">Transport (AMTS)</div>
                     <div className="text-xs text-gray-500">
                       5:13 pm • 34mins
                     </div>

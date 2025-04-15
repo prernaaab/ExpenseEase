@@ -2,11 +2,11 @@ import Graph from "./Graph";
 import QuickAdd from "./QuickAdd";
 import Grocery from "../../assets/grocery.png";
 import Housing from "../../assets/housing.png";
+import DashboardWrapper from "./DashBoardWrapper";
 // import useExpenseData from "../../hooks/useExpenseData";
 import Entertainment from "../../assets/entertainment.png";
 import Transportation from "../../assets/transportation.png";
 import Food_and_Drink from "../../assets/food_and_drinks.png";
-import { useState } from "react";
 
 const imgs = [
   { Entertainment: Entertainment },
@@ -55,7 +55,7 @@ export default function Expense() {
   ];
 
   return (
-    <div className="dashboardParent w-[50dvw] max-lg:w-full relative">
+    <DashboardWrapper>
       <div className="mb-10">
         <h3 className="text-4xl font-semibold mb-2 max-md:text-3xl">Expense</h3>
         <div className="text-[#101010] opacity-50 text-sm">
@@ -114,7 +114,7 @@ export default function Expense() {
         {/* )} */}
         <QuickAdd />
       </div>
-    </div>
+    </DashboardWrapper>
   );
 }
 

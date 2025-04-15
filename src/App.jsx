@@ -1,11 +1,11 @@
 import {
   Layout1,
   Layout2,
-  AddExpanse,
   Settings,
   SetBudget,
   Expense,
   Summary,
+  AddTransactions,
 } from "./components";
 import { Home, SignUp, Login, Pagenotfound } from "./pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -19,7 +19,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Pagenotfound />} />
         <Route path="/dashboard/*" element={<Layout1 />}>
-          <Route index element={<AddExpanse />} />
+          <Route index element={<AddTransactions />} />
           <Route path="Expenses" element={<Expense />} />
         </Route>
         <Route path="/dashboard/*" element={<Layout2 />}>
