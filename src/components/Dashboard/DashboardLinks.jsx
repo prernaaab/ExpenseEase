@@ -52,7 +52,9 @@ function DashboardLinks() {
       </div>
 
       {/* Mobile Bottom Navigation */}
+
       <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-black py-4 px-10 flex justify-between items-center z-50 min-w-[320px] w-full overflow-x-auto">
+
         {navLinks.map((link) => (
           <NavLink
             key={link.path}
