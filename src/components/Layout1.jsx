@@ -9,7 +9,7 @@ export default function layout() {
     <div className="bg-black min-h-[100dvh] relative">
       <div className="flex flex-col lg:flex-row lg:py-[2.67dvh] lg:px-3">
         <DashboardLinks />
-        <div className="bg-white w-full max-md:pb-24 flex flex-col overflow-hidden lg:rounded-3xl max-lg:min-h-[100dvh] lg:h-[94.65dvh]">
+        <div className="bg-white w-full max-md:pb-24 flex flex-col lg:flex-row overflow-hidden justify-between lg:rounded-3xl max-lg:min-h-[100dvh] lg:h-[94.65dvh]">
           <Outlet />
         </div>
       </div>

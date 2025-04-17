@@ -44,7 +44,7 @@ export default function AddExpense() {
 
   return (
     <>
-    <DashboardWrapper>
+      <DashboardWrapper>
         <div className="mb-6 md:mb-10">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 break-all text-wrap">
             ExpenseEase
@@ -54,10 +54,10 @@ export default function AddExpense() {
           </div>
         </div>
         <div className="flex flex-col items-start w-full">
-          <div className="text-xl md:text-2xl font-bold pl-2 pb-3 mb-4 border-b-[0.5px] border-[#828282] w-full md:w-[40dvw]">
+          <div className="text-xl md:text-2xl font-bold pl-2 pb-3 mb-4 border-b-[0.5px] border-[#828282] w-full lg:w-[40dvw]">
             Add Transactions
           </div>
-          <div className="relative flex p-2 text-center w-full rounded-md font-semibold text-lg md:text-xl bg-[rgb(237,240,246,1)]">
+          <div className="relative flex p-2 text-center w-full lg:w-[40dvw] rounded-md font-semibold text-lg md:text-xl bg-[rgb(237,240,246,1)]">
             <div
               className={`absolute bg-black w-[50%] top-[6px] left-0 rounded-[4px] h-10 transition-transform duration-300 ease-in-out ${
                 transactionType === "Expense"
@@ -84,7 +84,7 @@ export default function AddExpense() {
               Expense
             </button>
           </div>
-          <div className="flex flex-col w-full md:w-[90%] lg:w-[80%] mb-8 md:mb-14">
+          <div className="flex flex-col w-full md:w-[90%] lg:w-[40dvw] mb-8 md:mb-14">
             <select
               onChange={(e) => SetSelectCatagory(e.target.value)}
               value={SelectCatagory}
@@ -155,8 +155,8 @@ export default function AddExpense() {
             </button>
           </div>
         </div>
-    </DashboardWrapper>
-    <ExpenseDetails />
+      </DashboardWrapper>
+      <ExpenseDetails />
     </>
   );
 }
