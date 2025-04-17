@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import useAddExpense from "../../hooks/useAddExpense";
 import DashboardWrapper from "./DashBoardWrapper";
 
+import ExpenseDetails from "./ExpenseDetails";
+
 // import { useDispatch } from "react-redux";
 // import { addExpense, client } from "../../redux/expenseSlice";
 
@@ -41,6 +43,7 @@ export default function AddExpense() {
   // }, []);
 
   return (
+    <>
     <DashboardWrapper>
         <div className="mb-6 md:mb-10">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 break-all text-wrap">
@@ -153,5 +156,7 @@ export default function AddExpense() {
           </div>
         </div>
     </DashboardWrapper>
+    <ExpenseDetails />
+    </>
   );
 }

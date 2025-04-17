@@ -30,7 +30,7 @@ function DashboardLinks() {
         <div className="text-[14px] mb-24 text-white opacity-50 text-wrap break-all">
           email
         </div>
-        <div className="flex flex-col gap-6 mt-10 text-xl font-bold text-white">
+        <div className="flex flex-col gap-6 mt-10 text-xl font-bold text-white mr-3">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
@@ -52,7 +52,9 @@ function DashboardLinks() {
       </div>
 
       {/* Mobile Bottom Navigation */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-black py-4 px-6 flex justify-between items-center z-50 min-w-[320px] w-full overflow-x-auto">
+
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-black py-4 px-10 flex justify-between items-center z-50 min-w-[320px] w-full overflow-x-auto">
+
         {navLinks.map((link) => (
           <NavLink
             key={link.path}
@@ -69,7 +71,6 @@ function DashboardLinks() {
               alt={`${link.label} Icon`}
               className="w-6 h-6 mb-1"
             />
-            <span className="text-white text-xs whitespace-nowrap">{link.label}</span>
           </NavLink>
         ))}
       </div>
