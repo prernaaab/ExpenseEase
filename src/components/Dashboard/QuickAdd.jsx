@@ -18,7 +18,6 @@ export default function QuickAdd() {
   } = useAddExpense();
 
   function handleQuickAdd() {
-    // setAdd(!add);
     setOpenQuickAdd(!openQuickAdd);
   }
 
@@ -26,17 +25,14 @@ export default function QuickAdd() {
     setAdd(!add);
   }
   return (
-    <div>
-      <button
-        onClick={handleQuickAdd}
-        className="absolute bottom-5 right-[-2.7rem]"
-      >
+    <>
+      <button onClick={handleQuickAdd} className="absolute bottom-2 right-0">
         <img src={Show} alt="img" />
       </button>
       {openQuickAdd && (
         <>
           <div className="absolute top-1 backdrop-blur-sm left-4 bg-white/30 h-[94dvh] w-full" />
-          <div className="w-[40%] bg-[#EDF0F6] flex flex-col items-center rounded-xl p-4 absolute bottom-5 right-[-2.7rem]">
+          <div className="w-[40%] bg-[#EDF0F6] flex flex-col items-center rounded-xl p-4 absolute bottom-[1px] right-[-12px]">
             {add ? (
               <div className="h-full w-full flex flex-col items-center gap-y-5 py-10">
                 <img src={check} />
@@ -129,6 +125,6 @@ export default function QuickAdd() {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 }

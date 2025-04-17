@@ -4,7 +4,7 @@ import img2 from "../../assets/Illustration-2.png";
 
 export default function ExpenseDetails() {
   return (
-    <div className="bg-[#F9FAFC] lg:w-[clamp(19rem,100%,5rem)] min-h-screen lg:rounded-r-3xl lg:min-h-[94.65dvh] lg:fixed lg:right-3 lg:top-[2.67dvh] flex flex-col justify-between overflow-y-auto">
+    <div className="bg-[#F9FAFC] lg:w-[clamp(19rem,100%,5rem)] min-h-screen lg:rounded-r-3xl lg:min-h-[94.65dvh] flex flex-col justify-between overflow-y-auto">
       <div className="p-6 lg:py-8">
         <div className="mb-6">
           <h3 className="text-lg md:text-xl lg:text-[clamp(16px,1.4dvw,21px)] font-semibold">

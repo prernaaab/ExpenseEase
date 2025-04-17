@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 export default function useAddExpense() {
     const [Time, setTime] = useState("");
@@ -25,13 +25,18 @@ export default function useAddExpense() {
             AmountSpend: parseFloat(AmountSpend) || 0,
             Time: Time || getDate(),
             Remarks,
-            userId,
+            userId: "1384dfedb2",
         };
         console.log(expenseData)
         // dispatch(addExpense(expenseData));
 
         handleClear();
     };
+
+    // useEffect(() => {
+    // TODO : Make an API call to add expense to the backend.
+    // fetch("http://localhost:8000/expense/add-expense")
+    // }, [])
 
     const handleClear = () => {
         setTime("");
