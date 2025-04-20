@@ -1,63 +1,81 @@
-import { div } from "framer-motion/client";
-import Avatar from "../../assets/avatar.png";
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-// import { useSelector } from "react-redux";
-
 import DashboardWrapper from "./DashBoardWrapper";
 
-export default function SetBudget() {
-  // const navigate = useNavigate();
-  // const { name, email } = useSelector((state) => state.NameEmail);
+// Import assets
+import ExpenseDetails from './ExpenseDetails';
 
-  // const handleLogout = () => {
-  //   // authService.logout();
-  //   navigate("/");
-  // };
+
+export default function SetBudget() {
+  const navigate = useNavigate();
+  const [category, setCategory] = useState('');
+  const [amount, setAmount] = useState('');
+
+
+
+
 
   return (
-    // <div className="py-14 px-[4.5dvw] w-full relative">
-    //   <div className="mb-10">
-    //     <h3 className="text-4xl font-semibold mb-2">ExpenseEase</h3>
-    //     <div className="text-[#101010] opacity-50 text-sm">
-    //       01 - 25 March, 2020
-    //     </div>
-    //   </div>
-    //   <div className="w-1/2">
-    //     <div className="text-[rgba(38, 42, 65, 1)] border-b-[0.3px] mb-7 pb-3 px-5 border-black w-full text-2xl font-bold">
-    //       Accounts
-    //     </div>
-    //     <div className="flex flex-col gap-y-7 items-center">
-    //       <div className="flex h-16 gap-x-3 items-center w-full px-7">
-    //         <img src={Avatar} className="bg-[#D9D9D9] rounded-lg py-2 px-3" />
-    //         <div>
-    //           <div className="text-xl">name</div>
-    //           <div className="text-xs">email</div>
-    //         </div>
-    //       </div>
-    //       <div>
-    //         <button className="bg-[#D9D9D9] rounded-md block mb-3 py-2 text-sm font-semibold w-full">
-    //           Manage account
-    //         </button>
-    //         <button className="bg-[#D9D9D9] rounded-md py-2 text-sm font-semibold px-24">
-    //           Change password
-    //         </button>
-    //       </div>
-    //     </div>
-    //   </div>
-    //   <button
-    //     onClick={handleLogout}
-    //     className="bg-[#D9D9D9] px-6 py-1 rounded-md absolute right-16 bottom-8"
-    //   >
-    //     log out
-    //   </button>
-    // </div>
-    <DashboardWrapper>
-      <div className="mb-10">
-        <h3 className="text-4xl font-semibold mb-2">ExpenseEase</h3>
-        <div className="text-[#101010] opacity-50 text-sm">
-          01 - 25 March, 2020
+    <>
+      <DashboardWrapper>
+
+        <div className="flex flex-col w-full">
+          <div className="mb-6 md:mb-10">
+            <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 break-all text-wrap">
+              ExpenseEase
+            </h3>
+            <div className="text-[#101010] opacity-50 text-xs md:text-sm">
+              01 - 25 March, 2020
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:flex-row gap-8 w-full mt-11">
+            <div className="w-full">
+              <div className="text-xl md:text-2xl font-bold pl-2 pb-3 mb-4 border-b-[0.5px] border-[#828282]">
+                Set Budget
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <div className="relative">
+                  <select
+                    className="w-full p-3 md:p-4 border border-gray-200 rounded-lg appearance-none bg-white cursor-pointer text-sm md:text-base"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <option value="">Select category</option>
+                    <option value="Food and Drinks">Food and Drinks</option>
+                    <option value="Grocery">Grocery</option>
+                    <option value="Housing">Housing</option>
+                    <option value="Transportation">Transportation</option>
+                    <option value="Vehicle">Vehicle</option>
+                  </select>
+                </div>
+
+                <input
+                  type="number"
+                  placeholder="Budget amount"
+                  className="w-full p-3 md:p-4 border border-gray-200 rounded-lg text-sm md:text-base"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                />
+
+                <div className="flex flex-col gap-2 items-center mt-6">
+                  <button
+                    className="w-[50%] bg-[#101010] text-white font-semibold py-3 md:py-4 rounded-lg text-xl  mt-2"
+                  >
+                    Set
+                  </button>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
         </div>
-      </div>
-    </DashboardWrapper>
+
+      </DashboardWrapper>
+      <ExpenseDetails />
+    </>
   );
 }

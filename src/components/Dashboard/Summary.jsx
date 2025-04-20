@@ -1,5 +1,7 @@
 import React from 'react';
 import { PieChart, Pie, Cell } from 'recharts';
+import sort from '../../assets/sort.svg';
+import filter from '../../assets/filter.svg';
 
 const Summary = () => {
   // Data for pie chart
@@ -23,9 +25,9 @@ const Summary = () => {
 
   return (
     <div
-      className="dashboardParent w-auto lg:w-[calc(100%-21dvw)] px-4 md:px-6 lg:px-8 h-full overflow-auto lg:overflow-hidden pb-24"
-      style={{ width: '-webkit-fill-available', paddingBottom: '6rem' }}
+      className="dashboardParent w-full px-4 md:px-6 lg:px-8 h-full overflow-auto pb-24"
     >
+      {/* Header Section */}
       <div className="mb-6 md:mb-10">
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2">
           ExpenseEase
@@ -36,32 +38,35 @@ const Summary = () => {
       </div>
 
       <div className="flex flex-col items-start w-full">
-        <div className="text-xl md:text-2xl font-bold pl-2 pb-3 mb-4 border-b-[0.5px] border-[#828282] w-full md:w-[40dvw]">
+        <div className="text-xl md:text-2xl font-bold pl-2 pb-3 mb-6 border-b-[0.5px] border-[#828282] w-full">
           Summary
         </div>
+      </div>
 
-        {/* Financial Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full mb-6">
-          <div className="bg-white border border-gray-200 rounded-md p-4 shadow-sm">
-            <div className="text-sm text-gray-600">Total Income</div>
-            <div className="text-lg md:text-xl font-semibold">₹ 90,000</div>
+      {/* Main Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 lg:gap-6">
+        {/* Left Column */}
+        <div className="space-y-6">
+          {/* Financial Stats Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-white border border-gray-200 rounded-md p-4 shadow-sm">
+              <div className="text-sm text-gray-600">Total Income</div>
+              <div className="text-lg md:text-xl font-semibold">₹ 90,000</div>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-md p-4 shadow-sm">
+              <div className="text-sm text-gray-600">Total Expense</div>
+              <div className="text-lg md:text-xl font-semibold">₹ 70,000</div>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-md p-4 shadow-sm sm:col-span-2 lg:col-span-1">
+              <div className="text-sm text-gray-600">Balance</div>
+              <div className="text-lg md:text-xl font-semibold">₹ 20,000</div>
+            </div>
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-md p-4 shadow-sm">
-            <div className="text-sm text-gray-600">Total Expense</div>
-            <div className="text-lg md:text-xl font-semibold">₹ 70,000</div>
-          </div>
-
-          <div className="bg-white border border-gray-200 rounded-md p-4 shadow-sm">
-            <div className="text-sm text-gray-600">Balance</div>
-            <div className="text-lg md:text-xl font-semibold">₹ 20,000</div>
-          </div>
-        </div>
-
-        {/* Charts and Transactions Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6 w-full">
-          {/* Left Column - Charts */}
-          <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Charts Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
             {/* Income vs Expense Chart */}
             <div className="bg-white border border-gray-200 rounded-md p-4 shadow-sm">
               <h3 className="text-base font-medium mb-4">Income Vs Expense</h3>
@@ -104,7 +109,7 @@ const Summary = () => {
                     <div className="flex items-center justify-between mb-1">
                       <div className="flex items-center">
                         <div
-                          className={`w-4 h-4 rounded-full mr-2`}
+                          className="w-4 h-4 rounded-full mr-2"
                           style={{ backgroundColor: category.color }}
                         ></div>
                         <span className="text-sm font-medium">
@@ -132,44 +137,46 @@ const Summary = () => {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Right Column - Recent Transactions */}
-          <div className="bg-white border border-gray-200 rounded-md p-4 shadow-sm">
-            <h3 className="text-base font-medium mb-4">Recent Transactions</h3>
-            <div className="space-y-3">
-              <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded transition-colors">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center mr-3">
-                    <div className="text-red-500 text-sm">N</div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium">
-                      Entertainment (Netflix)
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      5:17 pm • 19mins
-                    </div>
-                  </div>
-                </div>
-                <div className="text-sm font-medium text-red-500">-150</div>
-              </div>
+        {/* Right Column - Recent Transactions */}
+        <div className="bg-white border border-gray-200 rounded-md p-4 shadow-sm h-fit">
+          <div className="flex justify-between items-center mb-4">
+            <div className="text-[#101010] opacity-50 text-xs sm:text-sm">
+              01 - 24 March, 2025
+            </div>
+            <div className="flex items-center gap-4">
+              <img src={filter} alt="Filter" className="w-3.5 h-5 cursor-pointer" />
+              <img src={sort} alt="Sort" className="w-4 h-5 cursor-pointer" />
+            </div>
+          </div>
 
-              <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded transition-colors">
-                <div className="flex items-center">
-                  <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center mr-3">
-                    <div className="text-orange-500 text-sm">A</div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium">
-                      Transport (AMTS)
-                    </div>
-                    <div className="text-xs text-gray-500">
-                      5:13 pm • 34mins
-                    </div>
-                  </div>
+          <div className="space-y-3">
+            {/* Transaction Items */}
+            <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded transition-colors">
+              <div className="flex items-center">
+                <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                  <div className="text-red-500 text-sm">N</div>
                 </div>
-                <div className="text-sm font-medium text-red-500">-150</div>
+                <div>
+                  <div className="text-sm font-medium">Entertainment</div>
+                  <div className="text-xs text-gray-500">5:17 pm • Netflix</div>
+                </div>
               </div>
+              <div className="text-sm font-medium text-red-500">-150</div>
+            </div>
+
+            <div className="flex items-center justify-between p-2 hover:bg-gray-50 rounded transition-colors">
+              <div className="flex items-center">
+                <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center mr-3">
+                  <div className="text-orange-500 text-sm">A</div>
+                </div>
+                <div>
+                  <div className="text-sm font-medium">Transport</div>
+                  <div className="text-xs text-gray-500">5:13 pm • AMTS</div>
+                </div>
+              </div>
+              <div className="text-sm font-medium text-red-500">-150</div>
             </div>
           </div>
         </div>
