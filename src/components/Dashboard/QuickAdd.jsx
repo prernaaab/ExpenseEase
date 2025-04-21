@@ -26,20 +26,26 @@ export default function QuickAdd() {
   }
   return (
     <>
-      <button onClick={handleQuickAdd} className="absolute bottom-2 right-0">
+      <button
+        onClick={handleQuickAdd}
+        className="absolute bottom-[3dvh] right-0"
+      >
         <img src={Show} alt="img" />
       </button>
       {openQuickAdd && (
         <>
           <div className="absolute top-1 backdrop-blur-sm left-4 bg-white/30 h-[94dvh] w-full" />
-          <div className="w-[40%] bg-[#EDF0F6] flex flex-col items-center rounded-xl p-4 absolute bottom-[1px] right-[-12px]">
+          <div className="w-[40%] bg-[#EDF0F6] flex flex-col items-center rounded-xl p-4 absolute bottom-[2dvh] right-[-12px]">
             {add ? (
               <div className="h-full w-full flex flex-col items-center gap-y-5 py-10">
-                <img src={check} />
-                <h3 className="font-bold text-2xl w-[40%] text-center">
+                <img src={check} className="h-[10dvh]" />
+                <h3 className="font-bold text-2xl w-[65%] text-center">
                   Added Successfully
                 </h3>
-                <button onClick={() => setAdd(!add)} className="outline-none">
+                <button
+                  onClick={() => setAdd(!add)}
+                  className="outline-none font-semibold opacity-50 hover:opacity-90 transition delay-100 duration-250 ease-in-out"
+                >
                   click to add more
                 </button>
               </div>
