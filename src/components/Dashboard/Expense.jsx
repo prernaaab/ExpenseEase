@@ -1,5 +1,4 @@
 import Graph from "./Graph";
-import QuickAdd from "./QuickAdd";
 import Grocery from "../../assets/grocery.png";
 import Housing from "../../assets/housing.png";
 import DashboardWrapper from "./DashBoardWrapper";
@@ -18,50 +17,6 @@ const imgs = [
 
 export default function Expense() {
   const Data = useExpenseData();
-  // console.log(Data.map((a) => console.log(a)));
-  console.log(Data);
-  const expenses = [
-    {
-      id: 1,
-      SelectCatagory: "Grocery",
-      Time: "1 - 2 - 2003",
-      Remarks: "one",
-      PaymentMethod: "UPI",
-      AmountSpend: "12000",
-    },
-    {
-      id: 2,
-      SelectCatagory: "Entertainment",
-      Time: "1 - 2 - 2003",
-      Remarks: "two",
-      PaymentMethod: "Cash",
-      AmountSpend: "2000",
-    },
-    {
-      id: 3,
-      SelectCatagory: "Transportation",
-      Time: "1 - 2 - 2003",
-      Remarks: "three",
-      PaymentMethod: "Card",
-      AmountSpend: "1000",
-    },
-    {
-      id: 4,
-      SelectCatagory: "Housing",
-      Time: "1 - 2 - 2003",
-      Remarks: "four",
-      PaymentMethod: "UPI",
-      AmountSpend: "4000",
-    },
-    {
-      id: 4,
-      SelectCatagory: "Housing",
-      Time: "1 - 2 - 2003",
-      Remarks: "four",
-      PaymentMethod: "UPI",
-      AmountSpend: "4000",
-    },
-  ];
 
   return (
     <>
@@ -73,7 +28,7 @@ export default function Expense() {
               ExpenseEase
             </h3>
             <div className="text-[#101010] opacity-50 text-xs md:text-sm">
-              01 - 25 March, 2020
+              01 - 30 April, 2025
             </div>
           </div>
 
@@ -84,17 +39,14 @@ export default function Expense() {
 
             {/* Transactions Section */}
             <div className="flex-grow overflow-hidden flex flex-col min-h-0">
-              <div className="flex items-center justify-between mb-4 px-3">
-                <h4 className="text-xl font-semibold">Today</h4>
-                <button className="text-[#D8D8D8] font-bold text-[2.3rem] tracking-[0.24rem]">
-                  &#183;&#183;&#183;
-                </button>
+              <div className="flex items-center justify-between mb-2 px-3">
+                <h4 className="text-lg font-semibold">Today</h4>
               </div>
 
               <div className="border-b-[#dedede92] border-b-2 mb-4" />
               <ul className="flex-grow overflow-y-auto min-h-[40dvh] space-y-2 pr-2">
-                {expenses?.length > 0 ? (
-                  expenses?.map((expense) => (
+                {Data?.length > 0 ? (
+                  Data?.map((expense) => (
                     <li
                       key={expense.expense_id}
                       className="list-none flex flex-col sm:flex-row w-full justify-between p-3 hover:bg-gray-50 rounded-lg transition-colors"
@@ -136,7 +88,6 @@ export default function Expense() {
             </div>
           </div>
         </div>
-        <QuickAdd />
       </DashboardWrapper>
     </>
   );

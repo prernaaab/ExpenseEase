@@ -2,7 +2,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import MuiAlert from "@mui/material/Alert";
 import styled from "styled-components";
+import DashboardWrapper from "./DashBoardWrapper";
 import Snackbar from "@mui/material/Snackbar";
 
 // Styled Components (CSS-in-JS)
@@ -53,7 +55,7 @@ const SelectField = styled.select`
 `;
 
 const Button = styled.button`
-  width: 100%;
+  width: 50%;
   padding: 12px;
   border-radius: 10px;
   cursor: pointer;
@@ -86,7 +88,6 @@ const Alert = React.forwardRef((props, ref) => (
 ));
 
 export default function SetBudget() {
-  const navigate = useNavigate();
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
   const [showIncomeModal, setShowIncomeModal] = useState(false);
@@ -157,15 +158,12 @@ export default function SetBudget() {
   };
 
   return (
-    <>
+    <DashboardWrapper>
       <div className="flex flex-col w-full">
         <div className="mb-6 md:mb-10">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 break-all text-wrap">
             ExpenseEase
           </h3>
-          <div className="text-[#101010] opacity-50 text-xs md:text-sm">
-            01 - 25 March, 2020
-          </div>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8 w-full mt-11">
@@ -177,7 +175,7 @@ export default function SetBudget() {
             <div className="flex flex-col gap-4">
               <div className="relative">
                 <button
-                  className="w-full p-3 md:p-4 border border-gray-200 rounded-lg text-sm md:text-base"
+                  className="w-full p-3 md:p-4 mb-3 border border-gray-200 rounded-lg text-sm md:text-base"
                   onClick={() => setShowIncomeModal(true)}
                 >
                   Add Income
@@ -262,7 +260,6 @@ export default function SetBudget() {
           {snackbarMessage}
         </Alert>
       </Snackbar>
-    </>
+    </DashboardWrapper>
   );
 }
-

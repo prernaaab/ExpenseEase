@@ -47,11 +47,8 @@ export default function AddExpense() {
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-2 break-all text-wrap">
             ExpenseEase
           </h3>
-          <div className="text-[#101010] opacity-50 text-xs md:text-sm">
-            01 - 25 March, 2020
-          </div>
         </div>
-        <div className="flex flex-col items-start w-full">
+        <div className="flex flex-col items-start">
           <div className="text-xl md:text-2xl font-bold pl-2 pb-3 mb-4 border-b-[0.5px] border-[#828282] w-full lg:w-[40dvw]">
             Add Transactions
           </div>
@@ -83,20 +80,22 @@ export default function AddExpense() {
             </button>
           </div>
           <div className="flex flex-col w-full md:w-[90%] lg:w-[40dvw] mb-8 md:mb-14">
-            <select
-              onChange={(e) => SetSelectCatagory(e.target.value)}
-              value={SelectCatagory}
-              className="select text-sm md:text-base p-3 md:p-[10px] mb-4 mt-2"
-            >
-              <option value="Select Category" disabled>
-                Select Category
-              </option>
-              <option value="Grocery">Grocery</option>
-              <option value="Transportation">Transportation</option>
-              <option value="Housing">Housing</option>
-              <option value="Food and Drink">Food and Drink</option>
-              <option value="Entertainment">Entertainment</option>
-            </select>
+            {transactionType === "Expense" && (
+              <select
+                onChange={(e) => SetSelectCatagory(e.target.value)}
+                value={SelectCatagory}
+                className="select text-sm md:text-base p-3 md:p-[10px] mb-4 mt-2"
+              >
+                <option value="Select Category" disabled>
+                  Select Category
+                </option>
+                <option value="Grocery">Grocery</option>
+                <option value="Transportation">Transportation</option>
+                <option value="Housing">Housing</option>
+                <option value="Food and Drink">Food and Drink</option>
+                <option value="Entertainment">Entertainment</option>
+              </select>
+            )}
 
             <select
               onChange={(e) => setPaymentMethod(e.target.value)}

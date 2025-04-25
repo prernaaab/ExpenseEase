@@ -1,23 +1,16 @@
 import React from "react";
-// import useExpenseData from "../../hooks/useExpenseData";
+import useExpenseData from "../../hooks/useExpenseData";
 import { BarChart, Bar, ResponsiveContainer } from "recharts";
 
 const MyBarChart = () => {
-  // const { expenses } = useExpenseData();
-  const data = [
-    { name: "January", sales: 50 },
-    { name: "February", sales: 40 },
-    { name: "March", sales: 60 },
-    { name: "April", sales: 70 },
-    { name: "May", sales: 50 },
-  ];
+  const Data = useExpenseData();
 
   return (
-    <div className="h-24">
+    <div className="h-24 mb-4">
       <ResponsiveContainer>
-        <BarChart data={data}>
+        <BarChart data={Data}>
           <Bar
-            dataKey="sales"
+            dataKey="amount_spent"
             fill="rgba(21, 122, 255,.2)"
             className="hover:cursor-pointer hover:fill-[#157aff]"
           />
