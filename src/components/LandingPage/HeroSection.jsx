@@ -2,12 +2,18 @@ import React from "react";
 import heroImgs from "../../images";
 import ImgMarquee from "./ImageMarquee";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "@clerk/clerk-react";
 
 function HeroSection() {
   const navigate = useNavigate();
+  const { isSignedIn } = useUser();
 
   const handleClick = () => {
-    navigate("/signup");
+    if (isSignedIn) {
+      navigate("/dashboard");
+    } else {
+      navigate("/SignUp");
+    }
   };
 
   return (
@@ -28,7 +34,6 @@ function HeroSection() {
             Get Started
           </button>
         </div>
-        
       </div>
       <div className=" w-full overflow-hidden max-xl:hidden">
         <ImgMarquee images={heroImgs} />
