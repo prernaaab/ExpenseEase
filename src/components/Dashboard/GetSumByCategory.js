@@ -2,11 +2,11 @@ import _ from "lodash";
 
 function GetSumByCategory(category) {
     let sum = _(category)
-        .groupBy("SelectCatagory")
-        .map((obj, key) => {
+        .groupBy("expense_category")
+        .map((objs, key) => {
             return {
                 category: key,
-                total: _.sumBy(obj, "AmountSpend"),
+                total: _.sumBy(objs, (o) => parseFloat(o.amount_spent)),
             };
         })
         .value();

@@ -2,7 +2,6 @@
 import React, { useState, useMemo } from "react";
 import DashboardWrapper from "./DashBoardWrapper";
 import useAddExpense from "../../hooks/useAddExpense";
-import DashboardWrapper from "./DashBoardWrapper";
 
 import ExpenseDetails from "./ExpenseDetails";
 
