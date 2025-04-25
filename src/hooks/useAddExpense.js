@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 
 export default function useAddExpense() {
     const [Time, setTime] = useState("");
@@ -11,32 +11,36 @@ export default function useAddExpense() {
 
     const getDate = useCallback(() => {
         const date = new Date();
-        let dateToday = `${date.getDate()}-${date.getMonth() + 1
-            }-${date.getFullYear()}`;
-        return dateToday;
+        return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
     }, []);
 
-
-    const handleAddExpense = () => {
+    const handleAddExpense = async () => {
         setDisable(true);
+
         const expenseData = {
-            SelectCatagory,
-            PaymentMethod,
-            AmountSpend: parseFloat(AmountSpend) || 0,
-            Time: Time || getDate(),
-            Remarks,
-            userId: "1384dfedb2",
+            expense_category: SelectCatagory,
+            payment_method: PaymentMethod,
+            amount_spent: parseFloat(AmountSpend) || 0,
+            spent_date: Time || getDate(),
+            remark: Remarks,
+            user_id: userId || "2",
+            email: "one@gmail.com"
         };
-        console.log(expenseData)
-        // dispatch(addExpense(expenseData));
-
-        handleClear();
+        try {
+            await fetch("http://localhost:8000/expense/add-expense", {
+                method: "POST",
+                body: JSON.stringify(expenseData),
+                headers: {
+                    "Content-type": "application/json"
+                }
+            });
+        } catch (e) {
+            console.error("Error adding expense:", e);
+        } finally {
+            handleClear();
+            setDisable(false);
+        }
     };
-
-    // useEffect(() => {
-    // TODO : Make an API call to add expense to the backend.
-    // fetch("http://localhost:8000/expense/add-expense")
-    // }, [])
 
     const handleClear = () => {
         setTime("");

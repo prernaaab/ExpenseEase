@@ -1,9 +1,6 @@
-
 import React, { useState, useMemo } from "react";
 import DashboardWrapper from "./DashBoardWrapper";
 import useAddExpense from "../../hooks/useAddExpense";
-
-import ExpenseDetails from "./ExpenseDetails";
 
 // import { useDispatch } from "react-redux";
 // import { addExpense, client } from "../../redux/expenseSlice";
@@ -157,8 +154,6 @@ export default function AddExpense() {
           </div>
         </div>
       </DashboardWrapper>
-      <ExpenseDetails />
     </>
   );
 }
-

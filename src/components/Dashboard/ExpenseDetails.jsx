@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useCallback } from "react";
+import GetSumByCategory from "./GetSumByCategory";
 import img1 from "../../assets/Illustration-1.png";
 import img2 from "../../assets/Illustration-2.png";
+import useExpenseData from "../../hooks/useExpenseData";
 
 export default function ExpenseDetails() {
+  const Data = useExpenseData();
+  const total = useCallback(GetSumByCategory(Data), [Data]);
+  const getTotalAmount = useCallback(
+    () => Data.map((a) => a.amount_spent).reduce((acc, curr) => acc + curr, 0),
+    [Data]
+  );
+
+  const totalAmount = getTotalAmount();
+
   return (
     <div className="bg-[#F9FAFC] lg:w-[clamp(19rem,100%,5rem)] min-h-screen lg:rounded-r-3xl lg:min-h-[94.65dvh] flex flex-col justify-between overflow-y-auto">
       <div className="p-6 lg:py-8">
@@ -12,7 +23,26 @@ export default function ExpenseDetails() {
           </h3>
         </div>
         <div className="space-y-4">
-          {/* Expense progress bars will go here */}
+          {total.length > 0 ? (
+            total.map((a, index) => {
+              return (
+                <div key={index} className="mb-4">
+                  <div className="flex text-sm justify-between -mb-3">
+                    <div className="text-xs">{a.category}</div>
+                    <div>{a.total}</div>
+                  </div>
+                  <progress
+                    id="file"
+                    max={totalAmount}
+                    value={a.total}
+                    className="h-1 w-full"
+                  />
+                </div>
+              );
+            })
+          ) : (
+            <p>No expenses found</p>
+          )}
         </div>
       </div>
 
