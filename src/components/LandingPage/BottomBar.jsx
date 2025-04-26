@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import { ContactIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
 import React from "react";
 
 import { ModeToggle } from "../ModeToggle.jsx";
@@ -16,7 +16,7 @@ import { cn } from "../../lib/utils.js";
 import { Dock, DockIcon, dockVariants } from "../dock.jsx";
 
 const Icons = {
-  calendar: (props) => <CalendarIcon {...props} />,
+  calendar: (props) => <ContactIcon {...props} />,
   email: (props) => <MailIcon {...props} />,
   linkedin: (props) => (
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -62,25 +62,11 @@ const Icons = {
 const DATA = {
   navbar: [
     { href: "#", icon: HomeIcon, label: "Home" },
-    { href: "#", icon: PencilIcon, label: "Blog" },
+    { href: "#", icon: ContactIcon, label: "Blog" },
   ],
   contact: {
     social: {
-      GitHub: {
-        name: "GitHub",
-        url: "#",
-        icon: Icons.github,
-      },
-      LinkedIn: {
-        name: "LinkedIn",
-        url: "#",
-        icon: Icons.linkedin,
-      },
-      X: {
-        name: "X",
-        url: "#",
-        icon: Icons.x,
-      },
+    
       email: {
         name: "Send Email",
         url: "#",
